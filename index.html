@@ -193,27 +193,6 @@
     .interest-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
     @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-    /* ══════════ SERVICES ══════════ */
-    #services { background: var(--bg1); }
-    .services-head { text-align: center; margin-bottom: 56px; }
-    .services-head h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 12px; }
-    .services-head p { color: var(--t2); max-width: 480px; margin: 0 auto; font-size: 15px; }
-    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .svc {
-      background: var(--bg2);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 28px 24px;
-      transition: border-color .25s, transform .25s;
-    }
-    .svc:hover { border-color: rgba(124,58,237,.3); transform: translateY(-4px); }
-    .svc-icon { font-size: 32px; margin-bottom: 16px; }
-    .svc h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-    .svc p { font-size: 13.5px; color: var(--t2); line-height: 1.7; margin-bottom: 18px; }
-    .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
-
     /* ══════════ EXPERIENCE ══════════ */
     .exp-wrap { max-width: 780px; }
     .exp-card {
@@ -319,7 +298,6 @@
       <a href="#hero" class="nav-brand">KS.</a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -332,7 +310,6 @@
 </nav>
 <div class="m-nav" id="mnav">
   <a href="#about">About</a>
-  <a href="#services">Services</a>
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
@@ -361,10 +338,6 @@
           Helping businesses grow through creative design, content systems, and performance-driven marketing.
         </p>
         <div class="hero-ctas reveal d3">
-          <a href="#services" class="btn btn-solid">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-            View Services
-          </a>
           <a href="#contact" class="btn btn-ghost">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Get In Touch
@@ -464,92 +437,11 @@
   </div>
 </section>
 
-<!-- ════════ SERVICES ════════ -->
-<section id="services" class="sec">
-  <div class="wrap">
-    <div class="services-head">
-      <p class="eyebrow reveal">02. Services</p>
-      <h2 class="reveal d1">What I <span class="gtext">Offer</span></h2>
-      <p class="reveal d2">End-to-end creative and marketing services to help your brand stand out and grow.</p>
-    </div>
-    <div class="services-grid">
-
-      <div class="svc reveal d1">
-        <div class="svc-icon">📣</div>
-        <h3>Meta Ads Management</h3>
-        <p>Strategy, setup, and ongoing optimization of Facebook & Instagram ad campaigns built to maximize ROI and lower cost-per-lead.</p>
-        <div class="svc-tags">
-          <span class="tag">Facebook Ads</span>
-          <span class="tag">Instagram Ads</span>
-          <span class="tag">Retargeting</span>
-          <span class="tag">A/B Testing</span>
-        </div>
-      </div>
-
-      <div class="svc reveal d2">
-        <div class="svc-icon">🎨</div>
-        <h3>Graphic Design & Branding</h3>
-        <p>Complete visual brand identities — logos, color systems, social media templates, and ad creatives that strengthen recognition.</p>
-        <div class="svc-tags">
-          <span class="tag">Logo Design</span>
-          <span class="tag">Brand Kit</span>
-          <span class="tag">Ad Creatives</span>
-          <span class="tag">Canva / Adobe</span>
-        </div>
-      </div>
-
-      <div class="svc reveal d3">
-        <div class="svc-icon">🎬</div>
-        <h3>Video Editing</h3>
-        <p>Editing Reels, Shorts, and promotional videos optimized for social platforms to boost organic reach and audience engagement.</p>
-        <div class="svc-tags">
-          <span class="tag">Reels</span>
-          <span class="tag">YouTube Shorts</span>
-          <span class="tag">Promo Videos</span>
-        </div>
-      </div>
-
-      <div class="svc reveal d1">
-        <div class="svc-icon">📱</div>
-        <h3>Social Media Strategy</h3>
-        <p>Content calendars, caption frameworks, and publishing workflows that maintain a consistent, engaging social media presence.</p>
-        <div class="svc-tags">
-          <span class="tag">Content Calendar</span>
-          <span class="tag">Scheduling</span>
-          <span class="tag">Growth Strategy</span>
-        </div>
-      </div>
-
-      <div class="svc reveal d2">
-        <div class="svc-icon">✍️</div>
-        <h3>Content & Copywriting</h3>
-        <p>Social media captions, ad copy, and brand content written to communicate value clearly and drive audience action.</p>
-        <div class="svc-tags">
-          <span class="tag">Ad Copy</span>
-          <span class="tag">Captions</span>
-          <span class="tag">Brand Voice</span>
-        </div>
-      </div>
-
-      <div class="svc reveal d3">
-        <div class="svc-icon">📈</div>
-        <h3>Performance Marketing</h3>
-        <p>Data-driven lead generation funnels and campaign optimization to reduce cost-per-lead and increase conversion rates.</p>
-        <div class="svc-tags">
-          <span class="tag">Lead Gen</span>
-          <span class="tag">Funnel Strategy</span>
-          <span class="tag">Analytics</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ════════ EXPERIENCE ════════ -->
 <section id="experience" class="sec">
   <div class="wrap">
-    <p class="eyebrow reveal">03. Experience</p>
+    <p class="eyebrow reveal">02. Experience</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:40px;">Work <span class="gtext">Experience</span></h2>
     <div class="exp-wrap">
       <div class="exp-card reveal d2">
@@ -590,7 +482,7 @@
 <!-- ════════ SKILLS ════════ -->
 <section id="skills" class="sec">
   <div class="wrap">
-    <p class="eyebrow reveal">04. Skills</p>
+    <p class="eyebrow reveal">03. Skills</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:12px;">My <span class="gtext">Skills</span></h2>
     <p class="reveal d2" style="color:var(--t2);font-size:15px;margin-bottom:40px;">Tools and skills I use to deliver results for every client.</p>
     <div class="skills-inner">
@@ -638,7 +530,7 @@
     <div class="contact-grid">
 
       <div class="contact-info">
-        <p class="eyebrow reveal">05. Contact</p>
+        <p class="eyebrow reveal">04. Contact</p>
         <h2 class="reveal d1">Get In <span class="gtext">Touch</span></h2>
         <p class="reveal d2">I'm always open to new opportunities and collaborations. Feel free to reach out — I'd love to hear about your project.</p>
         <div class="cinfo-list reveal d3">
@@ -745,7 +637,6 @@
         <div class="f-col-h">Navigation</div>
         <div class="f-nav">
           <a href="#about">About</a>
-          <a href="#services">Services</a>
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
