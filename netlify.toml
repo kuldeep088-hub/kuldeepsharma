@@ -1,6 +1,3 @@
 [build]
   publish = "."
   command = ""
-
-[[plugins]]
-  # disable next.js plugin — this is a static HTML site
