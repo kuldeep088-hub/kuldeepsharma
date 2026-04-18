@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kuldeep Sharma — Digital Marketing & Creative Specialist from Jaipur. Meta Ads, Graphic Design, Content Strategy, Video Editing." />
+  <title>Kuldeep Sharma — Digital Marketing & Creative Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: #0b0b12; color: #e4e4eb; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ─── TOKENS ─── */
+    :root {
+      --bg:      #0b0b12;
+      --bg1:     #111120;
+      --bg2:     #16162a;
+      --line:    rgba(255,255,255,0.07);
+      --t1:      #f0f0f8;
+      --t2:      #9898b0;
+      --t3:      #55556a;
+      --p:       #7c3aed;
+      --p2:      #9d5cf6;
+      --blue:    #3b82f6;
+      --cyan:    #06b6d4;
+      --green:   #22c55e;
+      --nav-h:   66px;
+    }
+
+    /* ─── LAYOUT ─── */
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .sec { padding: 96px 0; position: relative; }
+    .sec + .sec::before { content: ''; position: absolute; top: 0; left: 5%; right: 5%; height: 1px; background: var(--line); }
+
+    /* ─── TYPE ─── */
+    h1,h2,h3 { line-height: 1.15; letter-spacing: -0.02em; color: var(--t1); }
+    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--t3); margin-bottom: 12px; }
+    .gtext { background: linear-gradient(120deg, var(--p2) 0%, var(--blue) 60%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ─── ATOMS ─── */
+    .pill { display: inline-block; padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 500; border: 1px solid var(--line); color: var(--t2); background: rgba(255,255,255,0.03); }
+    .tag  { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--t3); background: rgba(255,255,255,0.04); border: 1px solid var(--line); }
+    .dot-green { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: glow 2s ease-in-out infinite; }
+    @keyframes glow { 0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)} 50%{box-shadow:0 0 0 5px rgba(34,197,94,0)} }
+
+    /* ─── BUTTONS ─── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 12px; font-size: 14px; font-weight: 600; transition: all .22s; white-space: nowrap; }
+    .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-solid { background: var(--p); color: #fff; box-shadow: 0 0 28px rgba(124,58,237,.3); }
+    .btn-solid:hover { background: var(--p2); transform: translateY(-2px); box-shadow: 0 0 40px rgba(124,58,237,.45); }
+    .btn-ghost { color: var(--t1); border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); }
+    .btn-ghost:hover { border-color: rgba(124,58,237,.4); background: rgba(124,58,237,.06); transform: translateY(-2px); }
+
+    /* ─── SCROLL FADE ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; }
+    .reveal.d3 { transition-delay: .3s; } .reveal.d4 { transition-delay: .4s; }
+
+    /* ══════════ NAVBAR ══════════ */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: var(--nav-h);
+      transition: background .3s, border-color .3s;
+    }
+    #nav.solid { background: rgba(11,11,18,.88); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
+    .nav-row { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-size: 20px; font-weight: 900; background: linear-gradient(120deg,var(--p2),var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; gap: 2px; }
+    .nav-links a { padding: 7px 13px; border-radius: 8px; font-size: 13.5px; color: var(--t2); transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--t1); background: rgba(255,255,255,.05); }
+    .nav-hire { padding: 8px 20px; border-radius: 10px; font-size: 13px; font-weight: 700; background: linear-gradient(120deg,var(--p),var(--blue)); color: #fff; transition: opacity .2s, transform .2s; }
+    .nav-hire:hover { opacity: .88; transform: translateY(-1px); }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+    .nav-ham span { display: block; width: 21px; height: 2px; background: var(--t2); border-radius: 2px; transition: all .25s; }
+    .m-nav { display: none; position: fixed; inset: var(--nav-h) 0 0; background: rgba(11,11,18,.97); backdrop-filter: blur(20px); padding: 24px 28px; z-index: 998; }
+    .m-nav.open { display: flex; flex-direction: column; gap: 4px; }
+    .m-nav a { padding: 14px 0; font-size: 16px; color: var(--t2); border-bottom: 1px solid var(--line); transition: color .2s; }
+    .m-nav a:last-child { border: none; }
+    .m-nav a:hover { color: var(--t1); }
+    @media (max-width: 760px) { .nav-links, .nav-hire { display: none; } .nav-ham { display: flex; } }
+
+    /* ══════════ HERO ══════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+      position: relative;
+    }
+    /* ambient blobs */
+    .blob { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
+    .blob-1 { width: 500px; height: 500px; background: rgba(124,58,237,.13); top: -60px; left: -80px; animation: drift 12s ease-in-out infinite; }
+    .blob-2 { width: 400px; height: 400px; background: rgba(59,130,246,.09); bottom: 0; right: -60px; animation: drift 15s ease-in-out infinite reverse; }
+    @keyframes drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 80px 0 60px; }
+
+    /* hero text */
+    .hero-avail { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: rgba(34,197,94,.07); border: 1px solid rgba(34,197,94,.2); font-size: 13px; color: var(--green); font-weight: 500; margin-bottom: 24px; }
+    .hero-name { font-size: clamp(38px, 6vw, 68px); font-weight: 900; margin-bottom: 14px; }
+    .hero-role { font-size: clamp(18px, 2.5vw, 26px); font-weight: 600; color: var(--t2); margin-bottom: 22px; min-height: 34px; }
+    #typed { color: var(--p2); }
+    #caret { display: inline-block; width: 2px; height: .9em; background: var(--p2); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .hero-desc { font-size: 15.5px; color: var(--t2); line-height: 1.75; max-width: 460px; margin-bottom: 32px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .hero-social { display: flex; align-items: center; gap: 10px; }
+    .icon-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255,255,255,.03); display: flex; align-items: center; justify-content: center; color: var(--t2); transition: all .22s; }
+    .icon-btn svg { width: 17px; height: 17px; }
+    .icon-btn:hover { color: var(--t1); border-color: rgba(124,58,237,.4); transform: translateY(-2px); }
+
+    /* hero photo */
+    .hero-photo-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .photo-frame {
+      position: relative;
+      width: 280px; height: 280px;
+    }
+    .photo-frame::before {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--p), var(--blue), var(--cyan));
+      animation: spin-slow 8s linear infinite;
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .photo-frame img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover; object-position: top;
+      border: 4px solid var(--bg);
+    }
+    .hero-float {
+      position: absolute;
+      background: rgba(11,11,18,.85);
+      border: 1px solid rgba(124,58,237,.3);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .hero-float.a { top: 4px; right: -16px; animation: bob 3s ease-in-out infinite; }
+    .hero-float.b { bottom: 4px; left: -16px; animation: bob 3.5s ease-in-out infinite reverse; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .stats-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; width: 100%; max-width: 300px; }
+    .stat { background: var(--bg1); border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+    .stat-n { font-size: 22px; font-weight: 800; background: linear-gradient(120deg,var(--p2),var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-l { font-size: 11px; color: var(--t3); margin-top: 2px; }
+
+    .scroll-hint { text-align: center; padding-bottom: 28px; }
+    .scroll-hint a { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; color: var(--t3); font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+    .scroll-hint svg { animation: bounce 1.6s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .hero-avail, .hero-ctas, .hero-social { justify-content: center; }
+      .hero-desc { margin: 0 auto 32px; }
+      .hero-photo-wrap { order: -1; }
+      .photo-frame { width: 220px; height: 220px; }
+    }
+
+    /* ══════════ ABOUT ══════════ */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 64px; align-items: start; }
+    .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .about-photo { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); transition: border-color .25s; }
+    .about-photo:hover { border-color: rgba(124,58,237,.35); }
+    .about-photo:nth-child(2) { margin-top: 28px; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .about-photo:hover img { transform: scale(1.04); }
+    .about-card { background: var(--bg1); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 16px; }
+    .about-card-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .about-card-row:last-child { border: none; padding-bottom: 0; }
+    .aci { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.05); flex-shrink: 0; }
+    .aci svg { width: 13px; height: 13px; color: var(--t2); }
+    .aci.g { background: rgba(34,197,94,.1); }
+    .aci.g svg { color: var(--green); }
+    .aci-label { font-size: 10px; color: var(--t3); }
+    .aci-val { font-size: 13px; font-weight: 500; }
+    .aci-val.g { color: var(--green); }
+
+    .about-text h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 24px; }
+    .about-text p { color: var(--t2); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+    .about-text p:last-of-type { margin-bottom: 28px; }
+    .interest-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ══════════ SERVICES ══════════ */
+    #services { background: var(--bg1); }
+    .services-head { text-align: center; margin-bottom: 56px; }
+    .services-head h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 12px; }
+    .services-head p { color: var(--t2); max-width: 480px; margin: 0 auto; font-size: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .svc {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: border-color .25s, transform .25s;
+    }
+    .svc:hover { border-color: rgba(124,58,237,.3); transform: translateY(-4px); }
+    .svc-icon { font-size: 32px; margin-bottom: 16px; }
+    .svc h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .svc p { font-size: 13.5px; color: var(--t2); line-height: 1.7; margin-bottom: 18px; }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════ EXPERIENCE ══════════ */
+    .exp-wrap { max-width: 780px; }
+    .exp-card {
+      background: var(--bg1);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      transition: border-color .25s;
+    }
+    .exp-card:hover { border-color: rgba(124,58,237,.25); }
+    .exp-top { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 20px; }
+    .exp-ico { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg,rgba(124,58,237,.2),rgba(59,130,246,.2)); border: 1px solid rgba(124,58,237,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .exp-ico svg { width: 20px; height: 20px; color: var(--p2); }
+    .exp-meta h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .exp-sub { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12.5px; color: var(--t3); }
+    .exp-company { font-weight: 600; background: linear-gradient(120deg,var(--p2),var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 13px; }
+    .badge { padding: 2px 10px; border-radius: 100px; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--p2); background: rgba(124,58,237,.08); border: 1px solid rgba(124,58,237,.2); }
+    .exp-points { margin-bottom: 20px; display: flex; flex-direction: column; gap: 9px; }
+    .ep { display: flex; gap: 10px; font-size: 13.5px; color: var(--t2); line-height: 1.6; }
+    .ep::before { content: '→'; color: var(--p2); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    /* ══════════ SKILLS ══════════ */
+    #skills { background: var(--bg1); }
+    .skills-inner { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .sk-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: border-color .25s; }
+    .sk-card:hover { border-color: rgba(124,58,237,.25); }
+    .sk-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .sk-emoji { font-size: 28px; }
+    .sk-title { font-size: 15px; font-weight: 700; background: linear-gradient(120deg,var(--p2),var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sk-list { display: flex; flex-direction: column; gap: 12px; }
+    .sk-item { display: flex; justify-content: space-between; align-items: center; }
+    .sk-name { font-size: 13px; font-weight: 500; color: var(--t2); }
+    .sk-bar-bg { width: 100px; height: 4px; background: rgba(255,255,255,.06); border-radius: 100px; overflow: hidden; }
+    .sk-bar { height: 100%; border-radius: 100px; background: linear-gradient(90deg,var(--p),var(--blue)); width: 0; transition: width 1s cubic-bezier(.16,1,.3,1); }
+    @media (max-width: 900px) { .skills-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .skills-inner { grid-template-columns: 1fr; } }
+
+    /* ══════════ CONTACT ══════════ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
+    .contact-info h2 { font-size: clamp(26px,3.5vw,40px); font-weight: 800; margin-bottom: 16px; }
+    .contact-info > p { color: var(--t2); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
+    .cinfo-list { display: flex; flex-direction: column; gap: 12px; }
+    .cinfo { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: var(--bg1); border: 1px solid var(--line); border-radius: 14px; transition: border-color .22s; }
+    a.cinfo:hover { border-color: rgba(124,58,237,.3); }
+    .cinfo-ico { width: 38px; height: 38px; border-radius: 10px; background: rgba(124,58,237,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cinfo-ico svg { width: 17px; height: 17px; color: var(--p2); }
+    .cinfo-lbl { font-size: 10px; color: var(--t3); margin-bottom: 1px; }
+    .cinfo-val { font-size: 13.5px; font-weight: 500; }
+    a.cinfo:hover .cinfo-val { color: var(--p2); }
+
+    /* form */
+    .form-box { background: var(--bg1); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
+    .form-title { font-size: 16px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .form-title svg { width: 17px; height: 17px; color: var(--p2); }
+    .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 11px; color: var(--t3); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
+    .field input, .field textarea {
+      width: 100%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 13.5px;
+      color: var(--t1);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--t3); }
+    .field input:focus, .field textarea:focus { border-color: rgba(124,58,237,.45); background: rgba(255,255,255,.05); }
+    .field textarea { resize: none; }
+    .form-msg { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 12px; opacity: 0; transition: opacity .3s; }
+    .form-msg.show { opacity: 1; }
+    .form-msg.ok { color: var(--green); }
+    .form-msg svg { width: 14px; height: 14px; }
+    @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } .form-2col { grid-template-columns: 1fr; } }
+
+    /* ══════════ FOOTER ══════════ */
+    footer { border-top: 1px solid var(--line); }
+    .footer-body { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding: 52px 0 44px; }
+    .f-brand-name { font-size: 24px; font-weight: 900; background: linear-gradient(120deg,var(--p2),var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+    .f-brand-desc { font-size: 13px; color: var(--t3); line-height: 1.7; max-width: 200px; }
+    .f-col-h { font-size: 10px; color: var(--t3); font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 14px; }
+    .f-nav { display: flex; flex-direction: column; gap: 8px; }
+    .f-nav a { font-size: 13.5px; color: var(--t2); transition: color .2s; }
+    .f-nav a:hover { color: var(--t1); }
+    .f-social { display: flex; gap: 10px; }
+    .footer-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 0; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--t3); }
+    .back-top { width: 34px; height: 34px; border-radius: 9px; background: var(--bg1); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--t2); cursor: pointer; transition: all .22s; }
+    .back-top svg { width: 13px; height: 13px; }
+    .back-top:hover { color: var(--t1); border-color: rgba(124,58,237,.4); transform: translateY(-2px); }
+    @media (max-width: 700px) { .footer-body { grid-template-columns: 1fr; gap: 28px; } }
+  </style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="wrap">
+    <div class="nav-row">
+      <a href="#hero" class="nav-brand">KS.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-hire">Hire Me</a>
+      <button class="nav-ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="m-nav" id="mnav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section id="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="wrap" style="width:100%;">
+    <div class="hero-grid">
+
+      <!-- Left -->
+      <div>
+        <div class="hero-avail reveal">
+          <span class="dot-green"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-name reveal d1">
+          Hi, I'm<br><span class="gtext">Kuldeep Sharma</span>
+        </h1>
+        <div class="hero-role reveal d2">
+          <span id="typed"></span><span id="caret"></span>
+        </div>
+        <p class="hero-desc reveal d3">
+          Helping businesses grow through creative design, content systems, and performance-driven marketing.
+        </p>
+        <div class="hero-ctas reveal d3">
+          <a href="#services" class="btn btn-solid">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+            View Services
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            Get In Touch
+          </a>
+        </div>
+        <div class="hero-social reveal d4">
+          <a href="https://www.linkedin.com/in/kuldeep-sharma-131701326/" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="hero-photo-wrap">
+        <div style="position:relative;">
+          <div class="photo-frame">
+            <img src="images/profile.jpg" alt="Kuldeep Sharma" />
+          </div>
+          <div class="hero-float a">🎨 Creative & Marketing</div>
+          <div class="hero-float b">🚀 Open to Work</div>
+        </div>
+        <div class="stats-row reveal d2">
+          <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Clients Helped</div></div>
+          <div class="stat"><div class="stat-n">20+</div><div class="stat-l">Campaigns Run</div></div>
+          <div class="stat"><div class="stat-n">500+</div><div class="stat-l">Content Pieces</div></div>
+          <div class="stat"><div class="stat-n">1+</div><div class="stat-l">Yrs Experience</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <a href="#about">
+        scroll down
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <!-- Photos + card -->
+      <div>
+        <div class="about-photos reveal">
+          <div class="about-photo" style="aspect-ratio:3/4;">
+            <img src="images/about-1.jpeg" alt="Kuldeep Sharma" />
+          </div>
+          <div class="about-photo" style="aspect-ratio:3/4;">
+            <img src="images/about-2.jpeg" alt="Kuldeep Sharma" />
+          </div>
+        </div>
+        <div class="about-card reveal d2">
+          <div class="about-card-row">
+            <div class="aci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="aci-label">Location</div><div class="aci-val">Jaipur, Rajasthan, India</div></div>
+          </div>
+          <div class="about-card-row">
+            <div class="aci g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-4 0v16"/></svg></div>
+            <div><div class="aci-label">Status</div><div class="aci-val g">Open to Opportunities</div></div>
+          </div>
+          <div class="about-card-row">
+            <div class="aci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
+            <div><div class="aci-label">Experience</div><div class="aci-val">1+ Years Freelance</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <p class="eyebrow reveal">01. About</p>
+        <h2 class="reveal d1">About <span class="gtext">Me</span></h2>
+        <p class="reveal d1">I am Kuldeep Sharma, a Digital Marketing and Growth Specialist focused on helping businesses and personal brands build a strong online presence.</p>
+        <p class="reveal d2">My work combines creative design, performance marketing, and data-driven strategies to generate real business results. I specialize in creating impactful visual content, managing high-performing Meta advertising campaigns, and building content systems that increase visibility, engagement, and lead generation.</p>
+        <p class="reveal d3">My goal is simple — help brands grow faster by combining creativity with data-driven marketing strategies.</p>
+        <div class="interest-wrap reveal d4">
+          <span class="pill">Meta Advertising</span>
+          <span class="pill">Creative Design</span>
+          <span class="pill">Brand Strategy</span>
+          <span class="pill">Content Marketing</span>
+          <span class="pill">Video Production</span>
+          <span class="pill">Business Growth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section id="services" class="sec">
+  <div class="wrap">
+    <div class="services-head">
+      <p class="eyebrow reveal">02. Services</p>
+      <h2 class="reveal d1">What I <span class="gtext">Offer</span></h2>
+      <p class="reveal d2">End-to-end creative and marketing services to help your brand stand out and grow.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc reveal d1">
+        <div class="svc-icon">📣</div>
+        <h3>Meta Ads Management</h3>
+        <p>Strategy, setup, and ongoing optimization of Facebook & Instagram ad campaigns built to maximize ROI and lower cost-per-lead.</p>
+        <div class="svc-tags">
+          <span class="tag">Facebook Ads</span>
+          <span class="tag">Instagram Ads</span>
+          <span class="tag">Retargeting</span>
+          <span class="tag">A/B Testing</span>
+        </div>
+      </div>
+
+      <div class="svc reveal d2">
+        <div class="svc-icon">🎨</div>
+        <h3>Graphic Design & Branding</h3>
+        <p>Complete visual brand identities — logos, color systems, social media templates, and ad creatives that strengthen recognition.</p>
+        <div class="svc-tags">
+          <span class="tag">Logo Design</span>
+          <span class="tag">Brand Kit</span>
+          <span class="tag">Ad Creatives</span>
+          <span class="tag">Canva / Adobe</span>
+        </div>
+      </div>
+
+      <div class="svc reveal d3">
+        <div class="svc-icon">🎬</div>
+        <h3>Video Editing</h3>
+        <p>Editing Reels, Shorts, and promotional videos optimized for social platforms to boost organic reach and audience engagement.</p>
+        <div class="svc-tags">
+          <span class="tag">Reels</span>
+          <span class="tag">YouTube Shorts</span>
+          <span class="tag">Promo Videos</span>
+        </div>
+      </div>
+
+      <div class="svc reveal d1">
+        <div class="svc-icon">📱</div>
+        <h3>Social Media Strategy</h3>
+        <p>Content calendars, caption frameworks, and publishing workflows that maintain a consistent, engaging social media presence.</p>
+        <div class="svc-tags">
+          <span class="tag">Content Calendar</span>
+          <span class="tag">Scheduling</span>
+          <span class="tag">Growth Strategy</span>
+        </div>
+      </div>
+
+      <div class="svc reveal d2">
+        <div class="svc-icon">✍️</div>
+        <h3>Content & Copywriting</h3>
+        <p>Social media captions, ad copy, and brand content written to communicate value clearly and drive audience action.</p>
+        <div class="svc-tags">
+          <span class="tag">Ad Copy</span>
+          <span class="tag">Captions</span>
+          <span class="tag">Brand Voice</span>
+        </div>
+      </div>
+
+      <div class="svc reveal d3">
+        <div class="svc-icon">📈</div>
+        <h3>Performance Marketing</h3>
+        <p>Data-driven lead generation funnels and campaign optimization to reduce cost-per-lead and increase conversion rates.</p>
+        <div class="svc-tags">
+          <span class="tag">Lead Gen</span>
+          <span class="tag">Funnel Strategy</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ EXPERIENCE ════════ -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <p class="eyebrow reveal">03. Experience</p>
+    <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:40px;">Work <span class="gtext">Experience</span></h2>
+    <div class="exp-wrap">
+      <div class="exp-card reveal d2">
+        <div class="exp-top">
+          <div class="exp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-4 0v16"/></svg>
+          </div>
+          <div class="exp-meta">
+            <h3>Freelance Digital Marketing &amp; Creative Specialist</h3>
+            <div class="exp-sub">
+              <span class="exp-company">Self-Employed</span>
+              <span>Jaipur, Rajasthan · Remote</span>
+              <span class="badge">Jul 2024 — Present</span>
+              <span class="badge">Freelance</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-points">
+          <div class="ep">Helping businesses, startups, and personal brands strengthen their online presence through creative design and performance-driven marketing strategies</div>
+          <div class="ep">Designing Instagram posts, ad creatives, and branding visuals that drive engagement and brand recognition</div>
+          <div class="ep">Managing Facebook &amp; Instagram ad campaigns — strategy, setup, and optimization for maximum ROI</div>
+          <div class="ep">Editing Reels, Shorts, and promotional videos to boost organic reach and audience growth</div>
+          <div class="ep">Writing social media captions, ad copy, and brand content to communicate value clearly</div>
+          <div class="ep">Building and managing end-to-end social media content systems for consistent brand visibility</div>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Graphic Design</span>
+          <span class="tag">Meta Ads</span>
+          <span class="tag">Video Editing</span>
+          <span class="tag">Content Writing</span>
+          <span class="tag">Social Media Strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SKILLS ════════ -->
+<section id="skills" class="sec">
+  <div class="wrap">
+    <p class="eyebrow reveal">04. Skills</p>
+    <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:12px;">My <span class="gtext">Skills</span></h2>
+    <p class="reveal d2" style="color:var(--t2);font-size:15px;margin-bottom:40px;">Tools and skills I use to deliver results for every client.</p>
+    <div class="skills-inner">
+
+      <div class="sk-card reveal d1">
+        <div class="sk-head"><span class="sk-emoji">🎨</span><span class="sk-title">Creative & Design</span></div>
+        <div class="sk-list">
+          <div class="sk-item"><span class="sk-name">Graphic Design</span><div class="sk-bar-bg"><div class="sk-bar" data-w="90"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Ad Creatives</span><div class="sk-bar-bg"><div class="sk-bar" data-w="87"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Creative Branding</span><div class="sk-bar-bg"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Video Editing</span><div class="sk-bar-bg"><div class="sk-bar" data-w="85"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Reels / Shorts</span><div class="sk-bar-bg"><div class="sk-bar" data-w="83"></div></div></div>
+        </div>
+      </div>
+
+      <div class="sk-card reveal d2">
+        <div class="sk-head"><span class="sk-emoji">📈</span><span class="sk-title">Marketing & Ads</span></div>
+        <div class="sk-list">
+          <div class="sk-item"><span class="sk-name">Digital Marketing</span><div class="sk-bar-bg"><div class="sk-bar" data-w="90"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Meta Ads Management</span><div class="sk-bar-bg"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Lead Generation</span><div class="sk-bar-bg"><div class="sk-bar" data-w="85"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Performance Marketing</span><div class="sk-bar-bg"><div class="sk-bar" data-w="84"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Campaign Optimization</span><div class="sk-bar-bg"><div class="sk-bar" data-w="82"></div></div></div>
+        </div>
+      </div>
+
+      <div class="sk-card reveal d3">
+        <div class="sk-head"><span class="sk-emoji">✍️</span><span class="sk-title">Content & Strategy</span></div>
+        <div class="sk-list">
+          <div class="sk-item"><span class="sk-name">Social Media Strategy</span><div class="sk-bar-bg"><div class="sk-bar" data-w="90"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Content Planning</span><div class="sk-bar-bg"><div class="sk-bar" data-w="87"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Content Writing</span><div class="sk-bar-bg"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Brand Messaging</span><div class="sk-bar-bg"><div class="sk-bar" data-w="85"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Audience Growth</span><div class="sk-bar-bg"><div class="sk-bar" data-w="83"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <p class="eyebrow reveal">05. Contact</p>
+        <h2 class="reveal d1">Get In <span class="gtext">Touch</span></h2>
+        <p class="reveal d2">I'm always open to new opportunities and collaborations. Feel free to reach out — I'd love to hear about your project.</p>
+        <div class="cinfo-list reveal d3">
+          <a href="https://www.linkedin.com/in/kuldeep-sharma-131701326/" target="_blank" rel="noopener" class="cinfo">
+            <div class="cinfo-ico">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="cinfo-lbl">LinkedIn</div>
+              <div class="cinfo-val">kuldeep-sharma-131701326</div>
+            </div>
+          </a>
+          <div class="cinfo">
+            <div class="cinfo-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cinfo-lbl">Location</div>
+              <div class="cinfo-val">Jaipur, Rajasthan, India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box reveal d2">
+        <div class="form-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Send a Message
+        </div>
+        <form id="cform">
+          <div class="form-2col">
+            <div class="field">
+              <label for="fn">Your Name</label>
+              <input type="text" id="fn" name="name" required placeholder="Your name..." />
+            </div>
+            <div class="field">
+              <label for="fe">Your Email</label>
+              <input type="email" id="fe" name="email" required placeholder="you@email.com" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="fm">Message</label>
+            <textarea id="fm" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+          </div>
+          <div class="form-msg" id="fmsg">
+            <svg id="fmsg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+            <span id="fmsg-txt"></span>
+          </div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;" id="fsub">
+            <span id="fbtn">Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-body">
+      <div>
+        <div class="f-brand-name">KS.</div>
+        <p class="f-brand-desc">Digital Marketing &amp; Creative Specialist helping brands grow through design, content, and ads.</p>
+      </div>
+      <div>
+        <div class="f-col-h">Navigation</div>
+        <div class="f-nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-h">Connect</div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/in/kuldeep-sharma-131701326/" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Built by <strong style="color:var(--t2);">Kuldeep Sharma</strong> · © <span id="yr"></span></span>
+      <button class="back-top" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* year */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* navbar */
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 24));
+
+  /* mobile menu */
+  const ham = document.getElementById('ham'), mnav = document.getElementById('mnav');
+  ham.onclick = () => mnav.classList.toggle('open');
+  mnav.querySelectorAll('a').forEach(a => a.onclick = () => mnav.classList.remove('open'));
+
+  /* smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      scrollTo({ top: t.offsetTop - 68, behavior: 'smooth' });
+    });
+  });
+
+  /* typing */
+  const roles = ['Digital Marketing Specialist','Creative Designer','Meta Ads Manager','Content Strategist','Video Editor','Brand Growth Specialist'];
+  let ri=0,ci=0,del=false;
+  const tel=document.getElementById('typed');
+  (function type(){
+    const w=roles[ri];
+    if(!del){ tel.textContent=w.slice(0,++ci); if(ci===w.length){del=true;setTimeout(type,1800);return;} }
+    else { tel.textContent=w.slice(0,--ci); if(!ci){del=false;ri=(ri+1)%roles.length;} }
+    setTimeout(type,del?48:78);
+  })();
+
+  /* reveal on scroll */
+  const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  /* hero elements start visible */
+  document.querySelectorAll('#hero .reveal').forEach(el => { el.classList.add('in'); ro.unobserve(el); });
+
+  /* skill bars */
+  const bro = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.querySelectorAll('.sk-bar').forEach(b => b.style.width=b.dataset.w+'%'); bro.unobserve(e.target); }
+  }), {threshold:.35});
+  document.querySelectorAll('.sk-card').forEach(c => bro.observe(c));
+
+  /* contact form */
+  document.getElementById('cform').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn=document.getElementById('fsub'), txt=document.getElementById('fbtn');
+    const msg=document.getElementById('fmsg'), ico=document.getElementById('fmsg-ico'), mtxt=document.getElementById('fmsg-txt');
+    btn.disabled=true; txt.textContent='Sending...';
+    await new Promise(r=>setTimeout(r,1400));
+    msg.className='form-msg show ok';
+    ico.innerHTML='<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
+    mtxt.textContent="Message sent! I'll get back to you soon.";
+    e.target.reset(); btn.disabled=false; txt.textContent='Send Message';
+    setTimeout(()=>msg.classList.remove('show'),5000);
+  });
+</script>
+</body>
+</html>

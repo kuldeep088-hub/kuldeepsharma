@@ -1,3 +1,0 @@
-Place your profile photo here as: profile.jpg
-Place your resume as: resume.pdf
-Place project screenshots in: projects/ecommerce.png, projects/chat.png, etc.
