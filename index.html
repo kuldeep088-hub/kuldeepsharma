@@ -169,7 +169,6 @@
     }
 
     /* ══════════ ABOUT ══════════ */
-    .about-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 64px; align-items: start; }
     .gallery-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; color: var(--t1); font-size: 15px; font-weight: 600; cursor: pointer; transition: border-color .25s, transform .2s; margin-bottom: 16px; }
     .gallery-btn:hover { border-color: var(--p); transform: translateY(-2px); }
     .gallery-btn svg { width: 18px; height: 18px; color: var(--p); }
@@ -191,22 +190,7 @@
     .lb-img { max-height: 88vh; max-width: 90vw; border-radius: 12px; object-fit: contain; }
     .lb-close { position: absolute; top: 20px; right: 24px; width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,.1); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; }
     @media (max-width: 560px) { .gal-grid { grid-template-columns: 1fr 1fr; } }
-    .about-card { background: var(--bg1); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 16px; }
-    .about-card-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-    .about-card-row:last-child { border: none; padding-bottom: 0; }
-    .aci { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.05); flex-shrink: 0; }
-    .aci svg { width: 13px; height: 13px; color: var(--t2); }
-    .aci.g { background: rgba(34,197,94,.1); }
-    .aci.g svg { color: var(--green); }
-    .aci-label { font-size: 10px; color: var(--t3); }
-    .aci-val { font-size: 13px; font-weight: 500; }
-    .aci-val.g { color: var(--green); }
-
-    .about-text h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 24px; }
-    .about-text p { color: var(--t2); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
-    .about-text p:last-of-type { margin-bottom: 28px; }
     .interest-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
 
     /* ══════════ EXPERIENCE ══════════ */
     .exp-wrap { max-width: 780px; }
@@ -403,41 +387,19 @@
 <!-- ════════ ABOUT ════════ -->
 <section id="about" class="sec">
   <div class="wrap">
-    <div class="about-grid">
-
-      <!-- Card -->
-      <div>
-        <div class="about-card reveal d2">
-          <div class="about-card-row">
-            <div class="aci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><div class="aci-label">Location</div><div class="aci-val">Jaipur, Rajasthan, India</div></div>
-          </div>
-          <div class="about-card-row">
-            <div class="aci g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-4 0v16"/></svg></div>
-            <div><div class="aci-label">Status</div><div class="aci-val g">Open to Opportunities</div></div>
-          </div>
-          <div class="about-card-row">
-            <div class="aci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-            <div><div class="aci-label">Experience</div><div class="aci-val">1+ Years Freelance</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Text -->
-      <div class="about-text">
-        <p class="eyebrow reveal">01. About</p>
-        <h2 class="reveal d1">About <span class="gtext">Me</span></h2>
-        <p class="reveal d1">I am Kuldeep Sharma, a Digital Marketing and Growth Specialist focused on helping businesses and personal brands build a strong online presence.</p>
-        <p class="reveal d2">My work combines creative design, performance marketing, and data-driven strategies to generate real business results. I specialize in creating impactful visual content, managing high-performing Meta advertising campaigns, and building content systems that increase visibility, engagement, and lead generation.</p>
-        <p class="reveal d3">My goal is simple — help brands grow faster by combining creativity with data-driven marketing strategies.</p>
-        <div class="interest-wrap reveal d4">
-          <span class="pill">Meta Advertising</span>
-          <span class="pill">Creative Design</span>
-          <span class="pill">Brand Strategy</span>
-          <span class="pill">Content Marketing</span>
-          <span class="pill">Video Production</span>
-          <span class="pill">Business Growth</span>
-        </div>
+    <p class="eyebrow reveal">01. About</p>
+    <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:24px;">About <span class="gtext">Me</span></h2>
+    <div style="max-width:780px;">
+      <p class="reveal d2" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">I am Kuldeep Sharma, a Digital Marketing and Growth Specialist focused on helping businesses and personal brands build a strong online presence.</p>
+      <p class="reveal d3" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">My work combines creative design, performance marketing, and data-driven strategies to generate real business results. I specialize in creating impactful visual content, managing high-performing Meta advertising campaigns, and building content systems that increase visibility, engagement, and lead generation.</p>
+      <p class="reveal d4" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:28px;">My goal is simple — help brands grow faster by combining creativity with data-driven marketing strategies.</p>
+      <div class="interest-wrap reveal d4">
+        <span class="pill">Meta Advertising</span>
+        <span class="pill">Creative Design</span>
+        <span class="pill">Brand Strategy</span>
+        <span class="pill">Content Marketing</span>
+        <span class="pill">Video Production</span>
+        <span class="pill">Business Growth</span>
       </div>
     </div>
   </div>
