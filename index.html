@@ -231,7 +231,7 @@
     @media (max-width: 560px) { .skills-inner { grid-template-columns: 1fr; } }
 
     /* ══════════ CONTACT ══════════ */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
+    .contact-grid { display: block; max-width: 640px; }
     .contact-info h2 { font-size: clamp(26px,3.5vw,40px); font-weight: 800; margin-bottom: 16px; }
     .contact-info > p { color: var(--t2); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
     .cinfo-list { display: flex; flex-direction: column; gap: 12px; }
@@ -667,36 +667,6 @@
         </div>
       </div>
 
-      <div class="form-box reveal d2">
-        <div class="form-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Send a Message
-        </div>
-        <form id="cform">
-          <div class="form-2col">
-            <div class="field">
-              <label for="fn">Your Name</label>
-              <input type="text" id="fn" name="name" required placeholder="Your name..." />
-            </div>
-            <div class="field">
-              <label for="fe">Your Email</label>
-              <input type="email" id="fe" name="email" required placeholder="you@email.com" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="fm">Message</label>
-            <textarea id="fm" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
-          </div>
-          <div class="form-msg" id="fmsg">
-            <svg id="fmsg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
-            <span id="fmsg-txt"></span>
-          </div>
-          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;" id="fsub">
-            <span id="fbtn">Send Message</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </form>
-      </div>
     </div>
   </div>
 </section>
@@ -877,19 +847,6 @@
     });
   });
 
-  /* contact form */
-  document.getElementById('cform').addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn=document.getElementById('fsub'), txt=document.getElementById('fbtn');
-    const msg=document.getElementById('fmsg'), ico=document.getElementById('fmsg-ico'), mtxt=document.getElementById('fmsg-txt');
-    btn.disabled=true; txt.textContent='Sending...';
-    await new Promise(r=>setTimeout(r,1400));
-    msg.className='form-msg show ok';
-    ico.innerHTML='<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
-    mtxt.textContent="Message sent! I'll get back to you soon.";
-    e.target.reset(); btn.disabled=false; txt.textContent='Send Message';
-    setTimeout(()=>msg.classList.remove('show'),5000);
-  });
 </script>
 
 <!-- Gallery Modal -->
