@@ -12,7 +12,6 @@
     /* ── Variables ── */
     :root {
       --bg: #08080f;
-      --bg2: #0d0d1a;
       --surface: rgba(255,255,255,0.04);
       --surface2: rgba(255,255,255,0.07);
       --border: rgba(255,255,255,0.07);
@@ -70,14 +69,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .gradient-text-purple {
-      background: linear-gradient(135deg, var(--violet), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .mono { font-family: 'JetBrains Mono', monospace; }
-
     /* ── Section header ── */
     .section-label {
       display: flex;
@@ -616,25 +607,6 @@
       width: 0;
       transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
     }
-    .skills-pills-wrap { margin-top: 56px; }
-    .skills-pills-label {
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--text3);
-      margin-bottom: 20px;
-    }
-    .skills-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .skill-pill {
-      padding: 6px 16px;
-      border-radius: 100px;
-      font-size: 12.5px;
-      color: var(--text2);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    .skill-pill:hover { border-color: rgba(124,58,237,0.3); color: #fff; }
     @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
     @media (min-width: 600px) and (max-width: 900px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
 
@@ -755,25 +727,6 @@
     .contact-card-label { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
     .contact-card-val { font-size: 13.5px; font-weight: 500; transition: all 0.25s; }
     a.contact-card:hover .contact-card-val { color: var(--violet); }
-    .social-find { border-radius: 16px; padding: 20px; margin-top: 2px; }
-    .social-find-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
-    .social-row { display: flex; gap: 10px; }
-    .social-card {
-      flex: 1;
-      border-radius: 12px;
-      padding: 12px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--text3);
-      transition: all 0.25s;
-      text-decoration: none;
-    }
-    .social-card:hover { color: #fff; border-color: rgba(124,58,237,0.3); }
-    .social-card svg { width: 20px; height: 20px; }
-
     /* Form */
     .form-card { border-radius: 20px; padding: 28px; }
     .form-header {
@@ -1207,30 +1160,6 @@
         <div class="skill-bar-wrap"><div class="skill-name-row"><span class="skill-name">Analytics &amp; Insights</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill" data-level="78"></div></div></div>
       </div>
     </div>
-    <!-- Pills -->
-    <div class="skills-pills-wrap fade-up">
-      <div class="skills-pills-label">all skills &amp; tools I work with</div>
-      <div class="skills-pills">
-        <span class="skill-pill">Graphic Design</span>
-        <span class="skill-pill">Video Editing</span>
-        <span class="skill-pill">Creative Branding</span>
-        <span class="skill-pill">Ad Creatives</span>
-        <span class="skill-pill">Reels / Shorts</span>
-        <span class="skill-pill">Visual Content</span>
-        <span class="skill-pill">Meta Ads Management</span>
-        <span class="skill-pill">Digital Marketing</span>
-        <span class="skill-pill">Lead Generation</span>
-        <span class="skill-pill">Campaign Optimization</span>
-        <span class="skill-pill">Ad Copywriting</span>
-        <span class="skill-pill">Performance Marketing</span>
-        <span class="skill-pill">Content Writing</span>
-        <span class="skill-pill">Social Media Strategy</span>
-        <span class="skill-pill">Content Planning</span>
-        <span class="skill-pill">Brand Messaging</span>
-        <span class="skill-pill">Audience Growth</span>
-        <span class="skill-pill">Analytics &amp; Insights</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1367,15 +1296,6 @@
               <div class="contact-card-label">Location</div>
               <div class="contact-card-val">Jaipur, Rajasthan, India</div>
             </div>
-          </div>
-        </div>
-        <div class="social-find glass fade-up d3" style="margin-top:14px;">
-          <div class="social-find-label">Find me on</div>
-          <div class="social-row">
-            <a href="https://www.linkedin.com/in/kuldeep-sharma-131701326/" target="_blank" rel="noopener" class="social-card glass glass-hover">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
           </div>
         </div>
       </div>
