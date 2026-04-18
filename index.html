@@ -19,9 +19,9 @@
 
     /* ─── TOKENS ─── */
     :root {
-      --bg:      #0b0b12;
-      --bg1:     #111120;
-      --bg2:     #16162a;
+      --bg:      #080810;
+      --bg1:     #0e0e1c;
+      --bg2:     #131324;
       --line:    rgba(255,255,255,0.07);
       --t1:      #f0f0f8;
       --t2:      #9898b0;
@@ -31,6 +31,8 @@
       --blue:    #3b82f6;
       --cyan:    #06b6d4;
       --green:   #22c55e;
+      --orange:  #f97316;
+      --teal:    #14b8a6;
       --nav-h:   66px;
     }
 
@@ -216,7 +218,7 @@
 
     /* ══════════ SKILLS ══════════ */
     #skills { background: var(--bg1); }
-    .skills-inner { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .skills-inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
     .sk-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: border-color .25s; }
     .sk-card:hover { border-color: rgba(124,58,237,.25); }
     .sk-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
@@ -227,7 +229,7 @@
     .sk-name { font-size: 13px; font-weight: 500; color: var(--t2); }
     .sk-bar-bg { width: 100px; height: 4px; background: rgba(255,255,255,.06); border-radius: 100px; overflow: hidden; }
     .sk-bar { height: 100%; border-radius: 100px; background: linear-gradient(90deg,var(--p),var(--blue)); width: 0; transition: width 1s cubic-bezier(.16,1,.3,1); }
-    @media (max-width: 900px) { .skills-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1100px) { .skills-inner { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 560px) { .skills-inner { grid-template-columns: 1fr; } }
 
     /* ══════════ CONTACT STRIP ══════════ */
@@ -335,6 +337,52 @@
     .sk-bar { position: relative; overflow: hidden; }
     .sk-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent); animation: shimmer 2.5s ease-in-out infinite 1.2s; }
     @keyframes shimmer { 0%{left:-60%} 100%{left:140%} }
+
+    /* ══════════ TERMINAL MOCKUP ══════════ */
+    .terminal { background: #0d0d1a; border: 1px solid rgba(124,58,237,.25); border-radius: 16px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 12px; box-shadow: 0 0 40px rgba(124,58,237,.1); max-width: 420px; }
+    .terminal-bar { background: rgba(255,255,255,.04); padding: 10px 16px; display: flex; align-items: center; gap: 7px; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .t-dot.r { background: #ff5f57; } .t-dot.y { background: #febc2e; } .t-dot.g { background: #28c840; }
+    .terminal-title { font-size: 11px; color: var(--t3); margin-left: 6px; }
+    .terminal-body { padding: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .tl { display: flex; gap: 8px; line-height: 1.5; }
+    .tl-p { color: var(--green); flex-shrink: 0; }
+    .tl-c { color: var(--t3); }
+    .tl-v { color: var(--p2); }
+    .tl-s { color: var(--cyan); }
+    .tl-o { color: var(--orange); }
+    .tl-w { color: var(--t2); }
+    .tl-blank { height: 6px; }
+    .terminal-cursor { display: inline-block; width: 7px; height: 13px; background: var(--p2); animation: blink 1s step-end infinite; vertical-align: middle; }
+
+    /* ══════════ AUTOMATION SECTION ══════════ */
+    #automation { background: var(--bg1); }
+    .auto-intro { max-width: 620px; margin-bottom: 48px; }
+    .auto-intro h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; margin-bottom: 16px; }
+    .auto-intro p { color: var(--t2); font-size: 15px; line-height: 1.8; }
+    .auto-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .auto-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .auto-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top left, var(--ac, rgba(124,58,237,.06)), transparent 65%); pointer-events: none; }
+    .auto-card:hover { border-color: var(--ac-border, rgba(124,58,237,.35)); transform: translateY(-4px); box-shadow: 0 12px 40px var(--ac-shadow, rgba(124,58,237,.1)); }
+    .auto-ico { font-size: 30px; margin-bottom: 14px; }
+    .auto-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--t1); }
+    .auto-card p { font-size: 13px; color: var(--t2); line-height: 1.65; margin-bottom: 14px; }
+    .auto-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .auto-tag { font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 2px 9px; border-radius: 5px; background: rgba(255,255,255,.04); border: 1px solid var(--line); color: var(--t3); }
+    @media (max-width: 900px) { .auto-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .auto-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════ HERO TERMINAL LAYOUT ══════════ */
+    .hero-terminal-wrap { margin-top: 28px; }
+    @media (max-width: 860px) { .hero-terminal-wrap { display: none; } }
   </style>
 </head>
 <body>
@@ -342,7 +390,7 @@
 <!-- Intro Loader -->
 <div id="loader">
   <div class="loader-name">Kuldeep Sharma</div>
-  <div class="loader-sub">Digital Marketing &amp; Creative</div>
+  <div class="loader-sub">AI Automation · Digital Marketing · Creative</div>
   <div class="loader-bar-bg"><div class="loader-bar"></div></div>
 </div>
 
@@ -358,6 +406,7 @@
     <div class="nav-row">
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#automation">Automation</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Contact</a>
@@ -370,6 +419,7 @@
 </nav>
 <div class="m-nav" id="mnav">
   <a href="#about">About</a>
+  <a href="#automation">Automation</a>
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
   <a href="#experience">Contact</a>
@@ -388,7 +438,7 @@
       <div>
         <div class="hero-avail reveal">
           <span class="dot-green"></span>
-          Brands Grow. Stories Stick. Results Speak.
+          Building AI Systems That Work While You Sleep
         </div>
         <h1 class="hero-name reveal d1">
           Hi, I'm<br><span class="gtext">Kuldeep Sharma</span>
@@ -397,13 +447,36 @@
           <span id="typed"></span><span id="caret"></span>
         </div>
         <p class="hero-desc reveal d3">
-          Helping businesses grow through creative design, content systems, and performance-driven marketing.
+          I help businesses grow by combining AI automation, performance marketing, and creative design — turning manual tasks into smart systems that run 24/7.
         </p>
         <div class="hero-ctas reveal d3">
+          <a href="#automation" class="btn btn-solid">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            See My Automations
+          </a>
           <a href="#experience" class="btn btn-ghost">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Get In Touch
           </a>
+        </div>
+        <div class="hero-terminal-wrap reveal d4">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+              <span class="terminal-title">automation_flow.js</span>
+            </div>
+            <div class="terminal-body">
+              <div class="tl"><span class="tl-c">// 🤖 Lead Gen Automation</span></div>
+              <div class="tl"><span class="tl-p">trigger</span><span class="tl-w">(</span><span class="tl-s">'Facebook Lead Ad'</span><span class="tl-w">)</span></div>
+              <div class="tl-blank"></div>
+              <div class="tl"><span class="tl-v">  .sendWhatsApp</span><span class="tl-w">(lead.phone,</span> <span class="tl-s">welcomeMsg</span><span class="tl-w">)</span></div>
+              <div class="tl"><span class="tl-v">  .addToCRM</span><span class="tl-w">(lead.data)</span></div>
+              <div class="tl"><span class="tl-v">  .notifyTeam</span><span class="tl-w">(</span><span class="tl-s">'Slack'</span><span class="tl-w">)</span></div>
+              <div class="tl-blank"></div>
+              <div class="tl"><span class="tl-o">✓ Runs 24/7 — No Manual Work</span></div>
+              <div class="tl"><span class="tl-p">$</span> <span class="terminal-cursor"></span></div>
+            </div>
+          </div>
         </div>
         <div class="hero-social reveal d4">
           <a href="https://www.linkedin.com/in/kuldeepsharma09/" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
@@ -427,7 +500,7 @@
           <div class="photo-frame">
             <img src="images/profile.png" alt="Kuldeep Sharma" />
           </div>
-          <div class="hero-float a">🎨 Creative & Marketing</div>
+          <div class="hero-float a">🤖 AI Automation</div>
           <div class="hero-float b">🚀 Creator & Marketer</div>
         </div>
         <div class="stats-row reveal d2">
@@ -454,17 +527,87 @@
     <p class="eyebrow reveal">01. About</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:24px;">About <span class="gtext">Me</span></h2>
     <div style="max-width:780px;">
-      <p class="reveal d2" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">I am Kuldeep Sharma, a Digital Marketing and Growth Specialist focused on helping businesses and personal brands build a strong online presence.</p>
-      <p class="reveal d3" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">My work combines creative design, performance marketing, and data-driven strategies to generate real business results. I specialize in creating impactful visual content, managing high-performing Meta advertising campaigns, and building content systems that increase visibility, engagement, and lead generation.</p>
-      <p class="reveal d4" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:28px;">My goal is simple: help brands grow faster by combining creativity with data-driven marketing strategies.</p>
+      <p class="reveal d2" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">I am Kuldeep Sharma — a Digital Marketing Specialist and AI Automation Builder from Jaipur. I help businesses stop doing repetitive tasks manually by building smart automated systems powered by AI.</p>
+      <p class="reveal d3" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:16px;">My work covers the full growth stack: I design automation workflows using tools like Make.com and n8n, manage high-performing Meta ad campaigns, create visual content and branding, and build systems that generate leads and follow up with them automatically — 24/7.</p>
+      <p class="reveal d4" style="color:var(--t2);font-size:15px;line-height:1.8;margin-bottom:28px;">Whether you need your Facebook leads auto-sent to WhatsApp, your CRM auto-updated, or your entire marketing workflow automated — I build it.</p>
       <div class="interest-wrap reveal d4">
+        <span class="pill">AI Automation</span>
+        <span class="pill">Make.com · n8n</span>
         <span class="pill">Meta Advertising</span>
+        <span class="pill">WhatsApp Automation</span>
         <span class="pill">Creative Design</span>
-        <span class="pill">Brand Strategy</span>
+        <span class="pill">Business Systems</span>
+        <span class="pill">Lead Generation</span>
         <span class="pill">Content Marketing</span>
-        <span class="pill">Video Production</span>
-        <span class="pill">Business Growth</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ AUTOMATION ════════ -->
+<section id="automation" class="sec" style="background:var(--bg1);">
+  <div class="wrap">
+    <div class="auto-intro">
+      <p class="eyebrow reveal">02. What I Build</p>
+      <h2 class="reveal d1">AI <span class="gtext">Automation</span> for Businesses</h2>
+      <p class="reveal d2">I build smart systems that eliminate manual work, automate follow-ups, and run your business processes 24/7 without you lifting a finger.</p>
+    </div>
+    <div class="auto-grid">
+
+      <div class="auto-card reveal d1" style="--ac:rgba(124,58,237,.08);--ac-border:rgba(124,58,237,.4);--ac-shadow:rgba(124,58,237,.12);">
+        <div class="auto-ico">⚡</div>
+        <h3>Lead Generation Automation</h3>
+        <p>Facebook and Instagram leads automatically captured, qualified, and sent to your CRM or WhatsApp in real-time — zero manual work.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">Make.com</span><span class="auto-tag">Meta Ads</span><span class="auto-tag">CRM</span><span class="auto-tag">Webhooks</span>
+        </div>
+      </div>
+
+      <div class="auto-card reveal d2" style="--ac:rgba(6,182,212,.08);--ac-border:rgba(6,182,212,.4);--ac-shadow:rgba(6,182,212,.1);">
+        <div class="auto-ico">💬</div>
+        <h3>WhatsApp Business Automation</h3>
+        <p>Auto-reply, lead follow-up, appointment confirmations, and broadcast messages — your WhatsApp works for you while you sleep.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">WhatsApp API</span><span class="auto-tag">n8n</span><span class="auto-tag">Auto-Reply</span><span class="auto-tag">Follow-ups</span>
+        </div>
+      </div>
+
+      <div class="auto-card reveal d3" style="--ac:rgba(249,115,22,.08);--ac-border:rgba(249,115,22,.4);--ac-shadow:rgba(249,115,22,.1);">
+        <div class="auto-ico">🤖</div>
+        <h3>AI Chatbots & Assistants</h3>
+        <p>Custom AI chatbots for your website or WhatsApp that answer questions, qualify leads, and book appointments automatically.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">OpenAI</span><span class="auto-tag">ChatGPT API</span><span class="auto-tag">Lead Qualify</span><span class="auto-tag">24/7</span>
+        </div>
+      </div>
+
+      <div class="auto-card reveal d1" style="--ac:rgba(34,197,94,.08);--ac-border:rgba(34,197,94,.4);--ac-shadow:rgba(34,197,94,.1);">
+        <div class="auto-ico">🗄️</div>
+        <h3>CRM & Data Integration</h3>
+        <p>Connect your ads, forms, email, and CRM into one seamless pipeline. Data flows automatically — no spreadsheet juggling.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">Google Sheets</span><span class="auto-tag">Airtable</span><span class="auto-tag">Zapier</span><span class="auto-tag">API</span>
+        </div>
+      </div>
+
+      <div class="auto-card reveal d2" style="--ac:rgba(157,92,246,.08);--ac-border:rgba(157,92,246,.4);--ac-shadow:rgba(157,92,246,.1);">
+        <div class="auto-ico">📱</div>
+        <h3>Social Media Automation</h3>
+        <p>Auto-schedule posts, recycle top content, auto-comment replies, and DM follow-ups across Instagram and Facebook.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">Instagram</span><span class="auto-tag">Facebook</span><span class="auto-tag">Scheduling</span><span class="auto-tag">DM Automation</span>
+        </div>
+      </div>
+
+      <div class="auto-card reveal d3" style="--ac:rgba(20,184,166,.08);--ac-border:rgba(20,184,166,.4);--ac-shadow:rgba(20,184,166,.1);">
+        <div class="auto-ico">📊</div>
+        <h3>Reporting & Analytics Automation</h3>
+        <p>Automated weekly reports, ad performance summaries, and KPI dashboards delivered to your inbox or WhatsApp — no manual reporting.</p>
+        <div class="auto-tags">
+          <span class="auto-tag">Google Data Studio</span><span class="auto-tag">Sheets</span><span class="auto-tag">Email Reports</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -472,7 +615,7 @@
 <!-- ════════ EXPERIENCE ════════ -->
 <section id="experience" class="sec">
   <div class="wrap">
-    <p class="eyebrow reveal">02. Experience</p>
+    <p class="eyebrow reveal">03. Experience</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:40px;">Work <span class="gtext">Experience</span></h2>
     <div class="exp-wrap">
       <div class="exp-card reveal d2">
@@ -548,7 +691,7 @@
 
     <!-- Compact Get In Touch -->
     <div id="contact" class="contact-strip reveal" style="margin-top:48px;">
-      <p class="eyebrow" style="margin-bottom:10px;">04. Get In Touch</p>
+      <p class="eyebrow" style="margin-bottom:10px;">05. Get In Touch</p>
       <div class="cstrip-grid">
         <a href="https://www.linkedin.com/in/kuldeepsharma09/" target="_blank" rel="noopener" class="cstrip-item">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -583,7 +726,7 @@
 <!-- ════════ SKILLS ════════ -->
 <section id="skills" class="sec">
   <div class="wrap">
-    <p class="eyebrow reveal">03. Skills</p>
+    <p class="eyebrow reveal">04. Skills</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:12px;">My <span class="gtext">Skills</span></h2>
     <p class="reveal d2" style="color:var(--t2);font-size:15px;margin-bottom:40px;">Tools and skills I use to deliver results for every client.</p>
     <div class="skills-inner">
@@ -621,6 +764,17 @@
         </div>
       </div>
 
+      <div class="sk-card reveal d1" style="border-color:rgba(124,58,237,.2);">
+        <div class="sk-head"><span class="sk-emoji">🤖</span><span class="sk-title">AI & Automation</span></div>
+        <div class="sk-list">
+          <div class="sk-item"><span class="sk-name">Make.com (Integromat)</span><div class="sk-bar-bg"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><span class="sk-name">n8n / Zapier</span><div class="sk-bar-bg"><div class="sk-bar" data-w="84"></div></div></div>
+          <div class="sk-item"><span class="sk-name">OpenAI / ChatGPT API</span><div class="sk-bar-bg"><div class="sk-bar" data-w="82"></div></div></div>
+          <div class="sk-item"><span class="sk-name">WhatsApp API</span><div class="sk-bar-bg"><div class="sk-bar" data-w="86"></div></div></div>
+          <div class="sk-item"><span class="sk-name">Workflow Design</span><div class="sk-bar-bg"><div class="sk-bar" data-w="90"></div></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -629,7 +783,7 @@
 <!-- ════════ GALLERY ════════ -->
 <section id="gallery" class="sec" style="background:var(--bg1);">
   <div class="wrap" style="text-align:center;">
-    <p class="eyebrow reveal">05. Gallery</p>
+    <p class="eyebrow reveal">06. Gallery</p>
     <h2 class="reveal d1" style="font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:12px;">My <span class="gtext">Photos</span></h2>
     <p class="reveal d2" style="color:var(--t2);font-size:15px;margin-bottom:36px;">A glimpse into who I am beyond the work.</p>
     <button class="gallery-btn reveal d3" id="openGallery" style="margin:0 auto;">
@@ -645,7 +799,7 @@
     <div class="footer-body">
       <div>
         <div class="f-brand-name">KS.</div>
-        <p class="f-brand-desc">Digital Marketing &amp; Creative Specialist helping brands grow through design, content, and ads.</p>
+        <p class="f-brand-desc">AI Automation Builder &amp; Digital Marketing Specialist. I build smart systems that grow businesses 24/7.</p>
       </div>
       <div>
         <div class="f-col-h">Navigation</div>
@@ -759,7 +913,7 @@
   }, { passive: true });
 
   /* typing */
-  const roles = ['Digital Marketing Specialist','Creative Designer','Meta Ads Manager','Content Strategist','Video Editor','Brand Growth Specialist'];
+  const roles = ['AI Automation Builder','Digital Marketing Specialist','Business Systems Architect','Meta Ads Manager','Creative Designer','Lead Generation Expert','WhatsApp Automation Pro'];
   let ri=0,ci=0,del=false;
   const tel=document.getElementById('typed');
   (function type(){
