@@ -782,23 +782,18 @@
   document.querySelectorAll('.sk-card').forEach(c => bro.observe(c));
 
   /* gallery */
-  const galleryImgs = [
-    { src: 'images/profile.png', label: 'Kuldeep Sharma' },
-    { src: 'images/about-1.jpeg', label: 'Kuldeep Sharma' },
-    { src: 'images/about-2.jpeg', label: 'Kuldeep Sharma' },
-  ];
-  const galOverlay = document.getElementById('galOverlay');
-  const lbOverlay = document.getElementById('lbOverlay');
-  const lbImg = document.getElementById('lbImg');
-  document.getElementById('openGallery').addEventListener('click', () => galOverlay.classList.add('open'));
-  document.getElementById('galClose').addEventListener('click', () => galOverlay.classList.remove('open'));
-  document.getElementById('lbClose').addEventListener('click', () => lbOverlay.classList.remove('open'));
-  galOverlay.addEventListener('click', e => { if(e.target===galOverlay) galOverlay.classList.remove('open'); });
-  lbOverlay.addEventListener('click', e => { if(e.target===lbOverlay) lbOverlay.classList.remove('open'); });
-  document.querySelectorAll('.gal-item').forEach(item => {
-    item.addEventListener('click', () => {
-      lbImg.src = item.querySelector('img').src;
-      lbOverlay.classList.add('open');
+  /* gallery — runs after full DOM including modal HTML */
+  document.addEventListener('DOMContentLoaded', () => {
+    const galOverlay = document.getElementById('galOverlay');
+    const lbOverlay = document.getElementById('lbOverlay');
+    const lbImg = document.getElementById('lbImg');
+    document.getElementById('openGallery').addEventListener('click', () => galOverlay.classList.add('open'));
+    document.getElementById('galClose').addEventListener('click', () => galOverlay.classList.remove('open'));
+    document.getElementById('lbClose').addEventListener('click', () => lbOverlay.classList.remove('open'));
+    galOverlay.addEventListener('click', e => { if (e.target === galOverlay) galOverlay.classList.remove('open'); });
+    lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) lbOverlay.classList.remove('open'); });
+    document.querySelectorAll('.gal-item').forEach(item => {
+      item.addEventListener('click', () => { lbImg.src = item.querySelector('img').src; lbOverlay.classList.add('open'); });
     });
   });
 
