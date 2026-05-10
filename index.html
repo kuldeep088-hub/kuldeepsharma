@@ -890,39 +890,73 @@
 </section>
 
 <!-- ─── SKILLS ─── -->
-<section class="sec sec-alt" id="skills">
+<section class="sec sec-alt" id="skills" style="position:relative;overflow:hidden;">
+  <div class="skills-aurora"></div>
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="skillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8B5CF6"/>
+        <stop offset="100%" stop-color="#c4b5fd"/>
+      </linearGradient>
+    </defs>
+  </svg>
   <div class="skills-grid">
     <div class="r">
       <div class="sec-label">Skills</div>
       <h2 class="sec-title">My<br>Toolkit.</h2>
       <p class="sec-sub" style="margin-bottom:2rem;">A mix of technical expertise, marketing mastery, and AI-first thinking.</p>
       <div class="skill-cats">
-        <div class="skill-cat">
-          <h4>Marketing &amp; Growth</h4>
+        <div class="skill-cat-card">
+          <div class="skill-cat-head"><span class="skill-cat-icon">📈</span><h4 class="skill-cat">Marketing &amp; Growth</h4></div>
           <div class="skill-tags"><span class="s-tag hot">SEO / AEO / GEO</span><span class="s-tag hot">Meta Ads</span><span class="s-tag hot">Lead Generation</span><span class="s-tag">Social Media Marketing</span><span class="s-tag">Performance Marketing</span><span class="s-tag">Content Writing</span></div>
         </div>
-        <div class="skill-cat">
-          <h4>AI &amp; Automation</h4>
+        <div class="skill-cat-card">
+          <div class="skill-cat-head"><span class="skill-cat-icon">🤖</span><h4 class="skill-cat">AI &amp; Automation</h4></div>
           <div class="skill-tags"><span class="s-tag hot">AI Automation</span><span class="s-tag">n8n / Make.com</span><span class="s-tag">Prompt Engineering</span><span class="s-tag">AI Systems Design</span></div>
         </div>
-        <div class="skill-cat">
-          <h4>Creative &amp; Tools</h4>
+        <div class="skill-cat-card">
+          <div class="skill-cat-head"><span class="skill-cat-icon">🎨</span><h4 class="skill-cat">Creative &amp; Tools</h4></div>
           <div class="skill-tags"><span class="s-tag">Canva</span><span class="s-tag">Graphic Design</span><span class="s-tag">Video Editing</span><span class="s-tag">MS Excel</span><span class="s-tag">Creative Thinking</span></div>
         </div>
-        <div class="skill-cat">
-          <h4>Certifications</h4>
+        <div class="skill-cat-card">
+          <div class="skill-cat-head"><span class="skill-cat-icon">🏆</span><h4 class="skill-cat">Certifications</h4></div>
           <div class="skill-tags"><span class="s-tag hot">Google AI Essentials</span><span class="s-tag">B.Tech CS + AI/ML at JECRC</span></div>
         </div>
       </div>
     </div>
-    <div class="bars-grid r" id="barsGrid">
-      <div class="bar-item"><div class="bar-lbl"><span>SEO / AEO / GEO</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>AI Automation</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" data-w="88"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>Meta Ads</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>Lead Generation</span><span>92%</span></div><div class="bar-track"><div class="bar-fill" data-w="92"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>Content Writing</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" data-w="82"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>Growth Strategy</span><span>87%</span></div><div class="bar-track"><div class="bar-fill" data-w="87"></div></div></div>
-      <div class="bar-item"><div class="bar-lbl"><span>Graphic Design</span><span>76%</span></div><div class="bar-track"><div class="bar-fill" data-w="76"></div></div></div>
+    <div class="ring-grid r" id="ringGrid">
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="90"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">SEO / AEO / GEO</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="92"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Lead Generation</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="88"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">AI Automation</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="85"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Meta Ads</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="87"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Growth Strategy</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="82"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Content Writing</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="80"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Social Media</div>
+      </div>
+      <div class="ring-item">
+        <div class="ring-wrap"><svg class="ring-svg" viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"/><circle class="ring-fill" cx="50" cy="50" r="38" data-pct="76"/></svg><div class="ring-num"><span class="ring-counter">0</span>%</div></div>
+        <div class="ring-label">Graphic Design</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1103,10 +1137,27 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.querySelectorAll('[data-target]').forEach(counter); } });
   }, {threshold:0.4}).observe(document.querySelector('.stats'));
 
-  // Skill bars
+  // Skill rings + tag entrance
   new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.w+'%'); });
-  }, {threshold:0.2}).observe(document.getElementById('barsGrid'));
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.ring-item').forEach((item, i) => {
+        setTimeout(() => {
+          item.classList.add('in');
+          const fill = item.querySelector('.ring-fill');
+          const counter = item.querySelector('.ring-counter');
+          const pct = parseInt(fill.dataset.pct);
+          fill.style.strokeDashoffset = 239 * (1 - pct / 100);
+          let cur = 0;
+          const inc = Math.max(1, Math.round(pct / 40));
+          const t = setInterval(() => { cur = Math.min(cur + inc, pct); counter.textContent = cur; if (cur >= pct) clearInterval(t); }, 28);
+        }, i * 110);
+      });
+      e.target.querySelectorAll('.s-tag').forEach((tag, i) => {
+        setTimeout(() => tag.classList.add('in'), 200 + i * 55);
+      });
+    });
+  }, {threshold:0.12}).observe(document.getElementById('skills'));
 
   // Photo parallax on scroll: desktop only (mobile layout is static)
   const heroCirclePos = document.querySelector('.hero-circle-pos');
