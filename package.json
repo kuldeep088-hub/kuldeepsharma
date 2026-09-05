@@ -1,0 +1,27 @@
+{
+  "name": "kuldeep-personal-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && git add . && (git diff --cached --quiet || git commit -m \"Deploy latest updates\") && git push origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuldeep088-hub/kuldeepsharma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kuldeep088-hub/kuldeepsharma/issues"
+  },
+  "homepage": "https://github.com/kuldeep088-hub/kuldeepsharma#readme",
+  "devDependencies": {
+    "vite": "^8.2.2"
+  }
+}
