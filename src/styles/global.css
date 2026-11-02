@@ -170,18 +170,32 @@
       color: #07080a;
     }
 
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
     .hamburger-btn {
-      display: none; flex-direction: column; gap: 6px;
-      cursor: pointer; padding: 0.5rem; background: none; border: none;
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 0.55rem 0.65rem;
+      background: rgba(22, 24, 31, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      transition: all 0.25s ease;
+    }
+    .hamburger-btn:hover {
+      background: rgba(255, 133, 51, 0.15);
+      border-color: rgba(255, 133, 51, 0.45);
     }
     .hamburger-btn span {
-      display: block; width: 26px; height: 2px;
+      display: block; width: 22px; height: 2px;
       background: var(--white); border-radius: 2px; transition: all 0.3s;
     }
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
       nav.scrolled { padding: 0.8rem 1.5rem; }
-      .nav-links, .nav-cta-btn { display: none; }
+      .nav-cta-btn { display: none; }
       .hamburger-btn { display: flex; }
       .sig-logo { height: 3.2rem; }
     }
