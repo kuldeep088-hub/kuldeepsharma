@@ -337,28 +337,18 @@
         </div>
       </div>
 
-      <!-- Right Column: Visual Photo Collage -->
+      <!-- Right Column: Autonomous Advisory Engine Showcase -->
       <div class="chapter-visual-col">
-        <div class="media-collage-card">
-          <div class="collage-grid">
-            <div class="collage-cell">
-              <img src="/images/kuldeep-banner-graphic.png" alt="Creative Strategy Backed by Performance" width="400" height="300" loading="lazy" decoding="async" />
-            </div>
-            <div class="collage-cell">
-              <img src="/images/kuldeep-portrait.webp" alt="Kuldeep Portrait" width="400" height="300" loading="lazy" decoding="async" />
-            </div>
-            <div class="collage-cell">
-              <img src="/images/about-1.jpeg" alt="Kuldeep" width="400" height="300" loading="lazy" decoding="async" />
-            </div>
-            <div class="collage-cell">
-              <img src="/images/about-2.jpeg" alt="Kuldeep Outdoor" width="400" height="300" loading="lazy" decoding="async" />
-            </div>
-          </div>
-          <div class="collage-overlay-photo">
-            <img src="/images/kuldeep-banner-graphic.png" alt="Where Creativity Meets Growth" width="500" height="320" loading="lazy" decoding="async" />
-            <div class="overlay-caption">
-              <span class="caption-dot"></span> Creative Strategy Backed by Performance
-            </div>
+        <div class="single-showcase-card">
+          <div class="single-photo-wrap">
+            <img 
+              src="/images/autonomous-advisory-engine.webp" 
+              alt="Autonomous Growth Infrastructure & Workflow Pipeline Architecture" 
+              width="1200" 
+              height="900" 
+              loading="lazy" 
+              decoding="async" 
+            />
           </div>
         </div>
       </div>
@@ -548,102 +538,6 @@
 
   .single-showcase-card:hover .single-photo-wrap img {
     transform: scale(1.025);
-  }
-
-  .media-collage-card {
-    position: relative;
-    width: 100%;
-    max-width: 540px;
-    background: #0b0d13;
-    border: 1px solid rgba(255, 133, 51, 0.22);
-    border-radius: 20px;
-    padding: 1.2rem;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 133, 51, 0.1);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .media-collage-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 133, 51, 0.55);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 133, 51, 0.2);
-  }
-
-  .collage-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    border-radius: 14px;
-    overflow: hidden;
-  }
-
-  .collage-cell {
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #11141c;
-  }
-
-  .collage-cell img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.85) contrast(1.05);
-    transition: transform 0.5s ease, filter 0.5s ease;
-  }
-
-  .media-collage-card:hover .collage-cell img {
-    filter: brightness(0.95) contrast(1.05);
-    transform: scale(1.04);
-  }
-
-  /* Overlapping Center Feature Photo */
-  .collage-overlay-photo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 72%;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #0f121a;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 133, 51, 0.15);
-    transition: transform 0.4s ease, border-color 0.3s ease;
-  }
-
-  .media-collage-card:hover .collage-overlay-photo {
-    transform: translate(-50%, -52%) scale(1.03);
-    border-color: rgba(255, 133, 51, 0.6);
-  }
-
-  .collage-overlay-photo img {
-    width: 100%;
-    height: auto;
-    max-height: 220px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .overlay-caption {
-    padding: 0.6rem 0.9rem;
-    background: rgba(11, 13, 19, 0.95);
-    backdrop-filter: blur(8px);
-    font-size: 0.72rem;
-    color: #e2e8f0;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .caption-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--orange);
-    box-shadow: 0 0 6px var(--orange);
   }
 
   /* Responsive Rules */
