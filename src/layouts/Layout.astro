@@ -90,46 +90,6 @@ const websiteSchema = {
   "inLanguage": "en-US"
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${siteUrl}/#faq-schema`,
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the difference between SEO, AEO, and GEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Traditional SEO optimizes for Google's classic algorithmic rankings. Answer Engine Optimization (AEO) structures entity data and facts so AI engines like Perplexity, ChatGPT Search, and Copilot quote your brand directly in synthesized responses. Generative Engine Optimization (GEO) ensures multi-model consensus across Gemini, Claude, and AI Overviews, making your business the natural recommendation when prospects ask conversational buying queries."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do your AI workflows cut client CAC by 30% and save 15+ hours weekly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sales friction kills conversions. By building automated n8n and Make pipelines integrated with custom LLM agents, incoming leads are enriched, scored, and answered in under 60 seconds. Speed-to-lead improves booking rates dramatically, eliminating 15+ hours of manual data entry while driving a 30% reduction in acquisition cost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What kind of businesses benefit most from your systems?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "I work best with fast-moving startups, B2B lead generation agencies, and D2C brands ready to scale systematically. If you are looking for superficial short-term growth hacks, I am not the right fit. If you want compounding, automated revenue engines built on robust systems, let's talk."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do we begin working together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Connect directly on LinkedIn (kuldeepsharma09), send a message via WhatsApp (+91 8690826138), or submit the inquiry form. We will schedule a focused discovery session to audit your growth bottlenecks and engineer an actionable game plan."
-      }
-    }
-  ]
-};
-
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -243,7 +203,6 @@ const serviceSchema = {
   <!-- JSON-LD Structured Data for Google, Bing, Perplexity, & ChatGPT -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </head>
 <body>
@@ -296,14 +255,6 @@ const serviceSchema = {
     window.closeMenu = function() {
       const menu = document.getElementById("mobileMenu");
       if (menu) menu.classList.remove("open");
-    };
-
-    // FAQ Accordion Handler
-    window.toggleFaq = function(el) {
-      const item = el.parentElement;
-      const open = item.classList.contains("open");
-      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
-      if (!open) item.classList.add("open");
     };
 
     // Toast Notification Helper
