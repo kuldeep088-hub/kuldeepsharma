@@ -1,27 +1,37 @@
 {
   "name": "kuldeep-personal-web",
+  "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Kuldeep Sharma Portfolio - Growth Systems & AI Automation",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "vite build && git add . && (git diff --cached --quiet || git commit -m \"Deploy latest updates\") && git push origin main"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kuldeep088-hub/kuldeepsharma.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "portfolio",
+    "astro",
+    "growth-systems",
+    "ai-automation",
+    "aeo",
+    "geo",
+    "meta-ads"
+  ],
+  "author": "Kuldeep Sharma",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/kuldeep088-hub/kuldeepsharma/issues"
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.0.0",
+    "tailwindcss": "^4.0.0"
   },
-  "homepage": "https://github.com/kuldeep088-hub/kuldeepsharma#readme",
   "devDependencies": {
-    "vite": "^8.2.2"
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.0.0"
   }
 }

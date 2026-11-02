@@ -1,0 +1,118 @@
+---
+---
+
+<!-- ─── CONTACT SECTION ─── -->
+<section class="sec" id="contact">
+  <div class="contact-grid">
+    <div class="r">
+      <div class="sec-label">Initiate Contact</div>
+      <h2 class="sec-title">Ready to build<br><span>scalable growth</span>?</h2>
+      <p class="sec-sub">Reach out directly through any preferred channel. I respond to all serious inquiries within 24 hours.</p>
+      
+      <div class="c-links">
+        <a href="https://www.linkedin.com/in/kuldeepsharma09/" target="_blank" rel="noopener" class="c-link">
+          <div class="c-icon">💼</div>
+          <div class="c-txt">
+            <span>LinkedIn Profile · 4.8K+ Network</span>
+            <strong>linkedin.com/in/kuldeepsharma09</strong>
+          </div>
+          <div class="c-arr">→</div>
+        </a>
+        <div class="c-link" style="cursor: pointer;" onclick="copyEmail()">
+          <div class="c-icon">✉️</div>
+          <div class="c-txt">
+            <span>Direct Email · Click to Copy</span>
+            <strong>kuldeepsharma635023@gmail.com</strong>
+            <button type="button" class="copy-email-btn">📋 Copy Email</button>
+          </div>
+          <div class="c-arr">→</div>
+        </div>
+        <a href="https://wa.me/918690826138" target="_blank" rel="noopener" class="c-link">
+          <div class="c-icon">💬</div>
+          <div class="c-txt">
+            <span>WhatsApp Chat · Instant Response</span>
+            <strong>+91 8690826138</strong>
+          </div>
+          <div class="c-arr">→</div>
+        </a>
+        <div class="c-link" style="cursor: pointer;" onclick="copyDiscord()">
+          <div class="c-icon">🎮</div>
+          <div class="c-txt">
+            <span>Discord · Profile Handle</span>
+            <strong>kuldeepsharma09</strong>
+            <button type="button" class="copy-email-btn">📋 Copy Discord</button>
+          </div>
+          <div class="c-arr">→</div>
+        </div>
+        <a href="https://www.instagram.com/heyitskuldeep2024/" target="_blank" rel="noopener" class="c-link">
+          <div class="c-icon">📸</div>
+          <div class="c-txt">
+            <span>Instagram · Creative & Growth</span>
+            <strong>@heyitskuldeep2024</strong>
+          </div>
+          <div class="c-arr">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="r">
+      <div class="contact-form-box">
+        <form id="contactForm">
+          <div class="form-grp">
+            <label for="f-name">Your Full Name</label>
+            <input id="f-name" type="text" name="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-grp">
+            <label for="f-email">Business Email</label>
+            <input id="f-email" type="email" name="email" placeholder="john@brand.com" required />
+          </div>
+          <div class="form-grp">
+            <label for="f-need">Growth Objective / Service</label>
+            <input id="f-need" type="text" name="service" placeholder="SEO/AEO/GEO, AI Workflows, Meta Ads..." />
+          </div>
+          <div class="form-grp">
+            <label for="f-msg">Project Details</label>
+            <textarea id="f-msg" name="message" placeholder="Briefly describe your current bottlenecks and growth goals..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Send Inquiry Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function initContactForm() {
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById("submitBtn");
+        const form = this;
+        btn.textContent = "Sending Message...";
+        btn.disabled = true;
+        try {
+          const res = await fetch("https://formspree.io/kuldeepsharma635023@gmail.com", {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+          if (res.ok) {
+            btn.textContent = "Message Sent Successfully ✓";
+            btn.style.background = "#16a34a";
+            form.reset();
+            if (window.showToast) window.showToast("Thank you! Message sent to Kuldeep.");
+            setTimeout(() => { btn.textContent = "Send Inquiry Message →"; btn.style.background = ""; btn.disabled = false; }, 4500);
+          } else {
+            throw new Error();
+          }
+        } catch {
+          btn.textContent = "Failed to Send — Reach via WhatsApp";
+          btn.style.background = "#dc2626";
+          if (window.showToast) window.showToast("Form delivery failed — please reach via WhatsApp or email directly.");
+          setTimeout(() => { btn.textContent = "Send Inquiry Message →"; btn.style.background = ""; btn.disabled = false; }, 4500);
+        }
+      });
+    }
+  })();
+</script>

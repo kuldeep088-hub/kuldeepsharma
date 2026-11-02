@@ -1,0 +1,239 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Kuldeep Sharma | Helping Businesses Scale Online with Intelligent Systems",
+  description = "Where Creativity Meets Growth | Creative Strategy Backed by Performance. Head of Growth Systems & Operations at Orielix | AI Automation, AEO, GEO & Meta Ads. Based in Jaipur, India.",
+  image = "/linkedin_photo.jpg",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/jpeg" href="/linkedin_photo.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="/linkedin_photo.jpg" />
+  <link rel="apple-touch-icon" href="/linkedin_photo.jpg" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:url" content="https://www.linkedin.com/in/kuldeepsharma09/" />
+  <meta property="og:site_name" content="Kuldeep Sharma Portfolio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Global Gradient Definitions -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="skillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ff8533" />
+        <stop offset="50%" stop-color="#ffa05c" />
+        <stop offset="100%" stop-color="#ffaa66" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Interactive Scroll & Cursor Elements -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Main Slot Content -->
+  <slot />
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/918690826138" target="_blank" rel="noopener" class="get-in-touch" aria-label="Chat on WhatsApp">
+    <div class="git-icon-wrap">
+      <div class="git-pulse"></div>
+      <div class="git-icon">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+    </div>
+    <span>Quick WhatsApp</span>
+  </a>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-msg" id="toastMsg">✓ Copied to clipboard!</div>
+
+  <!-- Global Client Interactions Script -->
+  <script is:inline>
+    // Global Navigation & Modal Handlers
+    window.openMenu = function() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu) menu.classList.add("open");
+    };
+    window.closeMenu = function() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu) menu.classList.remove("open");
+    };
+
+    // FAQ Accordion Handler
+    window.toggleFaq = function(el) {
+      const item = el.parentElement;
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
+      if (!open) item.classList.add("open");
+    };
+
+    // Toast Notification Helper
+    window.showToast = function(msg) {
+      const toast = document.getElementById("toastMsg");
+      if (!toast) return;
+      toast.textContent = "✓ " + msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3400);
+    };
+
+    // Clipboard Copy Helpers
+    window.copyEmail = function() {
+      navigator.clipboard.writeText("kuldeepsharma635023@gmail.com").then(() => {
+        window.showToast("Email address copied: kuldeepsharma635023@gmail.com");
+      }).catch(() => {
+        window.showToast("Email: kuldeepsharma635023@gmail.com");
+      });
+    };
+
+    window.copyDiscord = function() {
+      navigator.clipboard.writeText("kuldeepsharma09").then(() => {
+        window.showToast("Discord handle copied: kuldeepsharma09");
+      }).catch(() => {
+        window.showToast("Discord: kuldeepsharma09");
+      });
+    };
+
+    window.copyCredId = function(id) {
+      navigator.clipboard.writeText(id).then(() => {
+        window.showToast("Credential ID copied: " + id);
+      }).catch(() => {
+        window.showToast("Credential ID: " + id);
+      });
+    };
+
+    // Navbar Background on Scroll
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        if (navbar) navbar.classList.add("scrolled");
+      } else {
+        if (navbar) navbar.classList.remove("scrolled");
+      }
+    }, { passive: true });
+
+    // Scroll Progress Bar
+    const pgBar = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", () => {
+      const total = document.body.scrollHeight - window.innerHeight;
+      if (total > 0 && pgBar) {
+        const pct = (window.scrollY / total) * 100;
+        pgBar.style.width = pct + "%";
+      }
+    }, { passive: true });
+
+    // Custom Pointer Cursor
+    (function initCursor() {
+      const dot = document.getElementById("cursorDot");
+      const ring = document.getElementById("cursorRing");
+      if (!dot || !ring || !window.matchMedia("(pointer:fine)").matches) return;
+      let mx = -100, my = -100, rx = -100, ry = -100, visible = false;
+      window.addEventListener("mousemove", e => {
+        mx = e.clientX; my = e.clientY;
+        if (!visible) {
+          visible = true;
+          dot.style.opacity = "1"; ring.style.opacity = "1";
+        }
+      });
+      (function loop() {
+        dot.style.left = mx + "px"; dot.style.top = my + "px";
+        rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+        ring.style.left = rx + "px"; ring.style.top = ry + "px";
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll("a, button, .svc-card, .proj-card, .testi-card, .hl-box, .deck-card, .stat-item, .skill-cat-card, .framework-card, .pipe-step, .cred-card, .c-link").forEach(el => {
+        el.addEventListener("mouseenter", () => ring.classList.add("expanded"));
+        el.addEventListener("mouseleave", () => ring.classList.remove("expanded"));
+      });
+    })();
+
+    // Scroll Reveal Observer
+    const revealThreshold = window.innerWidth <= 960 ? 0.04 : 0.08;
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add("on"), idx * 40);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: revealThreshold });
+    document.querySelectorAll(".r").forEach(el => revealObserver.observe(el));
+
+    // 3D Card Tilt (Pointer devices)
+    document.querySelectorAll(".svc-card, .proj-card, .hl-box, .framework-card, .pipe-step, .cred-card").forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+        card.style.transition = "transform 0.05s ease-out";
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+        card.style.transition = "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+      });
+    });
+
+    // Mobile Touch Tactile Feedback & Gyroscope Motion
+    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+      document.querySelectorAll(".svc-card, .pipe-step, .cred-card, .hl-box, .interest-pill").forEach(card => {
+        card.addEventListener("touchstart", function() {
+          this.style.transform = "scale(0.975)";
+          this.style.borderColor = "rgba(255, 133, 51, 0.6)";
+        }, { passive: true });
+        card.addEventListener("touchend", function() {
+          setTimeout(() => {
+            this.style.transform = "";
+            this.style.borderColor = "";
+          }, 120);
+        }, { passive: true });
+      });
+
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", e => {
+          if (e.gamma !== null && e.beta !== null) {
+            const photo = document.getElementById("heroPhoto3D");
+            if (photo && window.innerWidth <= 960) {
+              const tiltX = Math.max(-10, Math.min(10, e.gamma / 3.5));
+              const tiltY = Math.max(-10, Math.min(10, (e.beta - 45) / 3.5));
+              photo.style.transform = `perspective(800px) rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
+            }
+          }
+        }, { passive: true });
+      }
+    }
+  </script>
+</body>
+</html>
