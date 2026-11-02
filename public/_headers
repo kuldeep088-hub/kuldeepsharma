@@ -1,0 +1,6 @@
+# Prevent search engine indexing on *.pages.dev preview deployments
+https://*.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://kuldeepsharma-6x3.pages.dev/*
+  X-Robots-Tag: noindex
