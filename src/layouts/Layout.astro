@@ -429,7 +429,7 @@ const serviceSchema = {
     document.querySelectorAll(".r").forEach(el => revealObserver.observe(el));
 
     // 3D Card Tilt (Pointer devices)
-    document.querySelectorAll(".svc-card, .proj-card, .hl-box, .framework-card, .pipe-step, .cred-card, .chapter-window, .about-single-image-frame").forEach(card => {
+    document.querySelectorAll(".svc-card, .proj-card, .hl-box, .framework-card, .pipe-step, .cred-card, .chapter-window, .who-portrait-card").forEach(card => {
       card.addEventListener("mousemove", e => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -445,7 +445,7 @@ const serviceSchema = {
 
     // Mobile Touch Tactile Feedback & Gyroscope Motion
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-      document.querySelectorAll(".svc-card, .pipe-step, .cred-card, .hl-box, .interest-pill, .chapter-window, .about-single-image-frame").forEach(card => {
+      document.querySelectorAll(".svc-card, .pipe-step, .cred-card, .hl-box, .interest-pill, .chapter-window, .who-portrait-card").forEach(card => {
         card.addEventListener("touchstart", function() {
           this.style.transform = "scale(0.975)";
           this.style.borderColor = "rgba(255, 133, 51, 0.6)";
