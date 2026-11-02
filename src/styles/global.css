@@ -2645,3 +2645,394 @@
       color: var(--gray);
       line-height: 1.4;
     }
+
+    /* ─── AMBIENT ATMOSPHERE & FILM GRAIN ─── */
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 998;
+      opacity: 0.038;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .ambient-spotlight {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(255, 133, 51, 0.11) 0%, rgba(255, 133, 51, 0.03) 45%, transparent 70%);
+      opacity: 0;
+      transform: translate3d(-50%, -50%, 0);
+      will-change: transform, opacity;
+      transition: opacity 0.4s ease;
+    }
+    @media (pointer: coarse) {
+      .ambient-spotlight {
+        display: none;
+      }
+    }
+
+    /* ─── ABOUT HIGH-IMPACT PERSONAL HOOK ─── */
+    .about-hook-banner {
+      background: linear-gradient(135deg, rgba(255, 133, 51, 0.09) 0%, rgba(22, 24, 31, 0.92) 55%, rgba(14, 16, 20, 0.98) 100%);
+      border: 1px solid rgba(255, 133, 51, 0.32);
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 45px rgba(255, 133, 51, 0.08);
+      backdrop-filter: blur(14px);
+    }
+    .about-hook-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+    }
+    .about-hook-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.95rem;
+    }
+    .about-hook-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange-hover);
+      background: rgba(255, 133, 51, 0.15);
+      border: 1px solid rgba(255, 133, 51, 0.35);
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .about-hook-lead {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.7;
+      color: #fff;
+      margin-bottom: 1.4rem;
+      font-style: normal;
+    }
+    .about-hook-lead strong {
+      color: var(--orange-hover);
+    }
+    .about-hook-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    @media (max-width: 768px) {
+      .about-hook-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+      }
+    }
+    .hook-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .hook-stat-item .hs-val {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .hook-stat-item .hs-lbl {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--gray);
+      margin-top: 0.2rem;
+      line-height: 1.35;
+    }
+
+    /* ─── THE CHAPTERS OF GROWTH (EPISODIC NARRATIVE SYSTEM) ─── */
+    .chapters-nav-wrapper {
+      margin: 2.5rem 0 3.2rem 0;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .chapter-nav-btn {
+      background: rgba(22, 24, 31, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 30px;
+      padding: 0.45rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gray-light);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .chapter-nav-btn:hover {
+      background: rgba(255, 133, 51, 0.12);
+      border-color: rgba(255, 133, 51, 0.4);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .chapter-nav-btn .c-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .chapters-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      position: relative;
+    }
+
+    /* macOS Browser Chrome Window Mockup */
+    .chapter-window {
+      background: rgba(14, 16, 21, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 133, 51, 0.04);
+      backdrop-filter: blur(18px);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .chapter-window:hover {
+      border-color: rgba(255, 133, 51, 0.45);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(255, 133, 51, 0.12);
+      transform: translateY(-4px);
+    }
+
+    /* Chrome Top Bar */
+    .mac-chrome-bar {
+      background: rgba(9, 10, 13, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 0.75rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .mac-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mac-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .mac-dot.red { background: #ff5f56; }
+    .mac-dot.yellow { background: #ffbd2e; }
+    .mac-dot.green { background: #27c93f; }
+
+    .mac-url-pill {
+      background: rgba(22, 24, 31, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 0.3rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: "JetBrains Mono", monospace, monospace;
+      font-size: 0.74rem;
+      color: var(--gray-light);
+      max-width: 480px;
+      width: 100%;
+      justify-content: center;
+      letter-spacing: -0.01em;
+    }
+    .mac-url-pill svg {
+      width: 12px;
+      height: 12px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+    .mac-url-pill span.host {
+      color: #fff;
+      font-weight: 600;
+    }
+    .mac-url-pill span.path {
+      color: var(--gray);
+    }
+
+    .mac-status {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+    .mac-status.live {
+      color: #27c93f;
+    }
+    .mac-status.live .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #27c93f;
+      box-shadow: 0 0 8px #27c93f;
+      animation: pulseDot 2s infinite;
+    }
+
+    /* Chrome Window Body */
+    .chapter-window-body {
+      padding: 2.2rem 2.4rem;
+    }
+    @media (max-width: 768px) {
+      .mac-url-pill {
+        display: none;
+      }
+      .chapter-window-body {
+        padding: 1.5rem 1.3rem;
+      }
+    }
+
+    .chapter-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+    .chapter-num-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(255, 133, 51, 0.12);
+      border: 1px solid rgba(255, 133, 51, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+    }
+    .chapter-date-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gray-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .chapter-title-row {
+      margin-bottom: 0.5rem;
+    }
+    .chapter-role-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+    .chapter-company-sub {
+      font-size: 0.95rem;
+      color: var(--orange-hover);
+      font-weight: 600;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .chapter-company-sub a {
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.2s;
+    }
+    .chapter-company-sub a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .chapter-narrative {
+      color: var(--gray-light);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin: 1.3rem 0 1.6rem 0;
+    }
+    .chapter-narrative p {
+      margin-bottom: 0.85rem;
+    }
+
+    /* Quantified Metric Pills Strip */
+    .chapter-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .chapter-metrics-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+    .c-metric-card {
+      background: rgba(22, 24, 31, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 0.85rem 1.1rem;
+      transition: border-color 0.25s;
+    }
+    .c-metric-card:hover {
+      border-color: rgba(255, 133, 51, 0.3);
+    }
+    .c-metric-val {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+    .c-metric-lbl {
+      font-size: 0.74rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+      line-height: 1.35;
+    }
+
+    /* The Takeaway Bar */
+    .chapter-takeaway {
+      background: rgba(255, 133, 51, 0.06);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      padding: 0.85rem 1.2rem;
+      margin-top: 1.2rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--gray-light);
+    }
+    .chapter-takeaway strong {
+      color: #fff;
+    }

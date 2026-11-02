@@ -245,6 +245,12 @@ const serviceSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </head>
 <body>
+  <!-- Atmospheric Cinematic Grain Texture Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Interactive Cinematic Ambient Spotlight (Glow following cursor) -->
+  <div class="ambient-spotlight" id="spotlightGlow" aria-hidden="true"></div>
+
   <!-- Global Gradient Definitions -->
   <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true" focusable="false">
     <defs>
@@ -371,10 +377,43 @@ const serviceSchema = {
         ring.style.left = rx + "px"; ring.style.top = ry + "px";
         requestAnimationFrame(loop);
       })();
-      document.querySelectorAll("a, button, .svc-card, .proj-card, .testi-card, .hl-box, .deck-card, .stat-item, .skill-cat-card, .framework-card, .pipe-step, .cred-card, .c-link").forEach(el => {
+      document.querySelectorAll("a, button, .svc-card, .proj-card, .testi-card, .hl-box, .deck-card, .stat-item, .skill-cat-card, .framework-card, .pipe-step, .cred-card, .chapter-window, .chapter-nav-btn, .c-link").forEach(el => {
         el.addEventListener("mouseenter", () => ring.classList.add("expanded"));
         el.addEventListener("mouseleave", () => ring.classList.remove("expanded"));
       });
+    })();
+
+    // Interactive Cinematic Ambient Spotlight
+    (function initSpotlight() {
+      const spot = document.getElementById("spotlightGlow");
+      if (!spot || !window.matchMedia("(pointer:fine)").matches) return;
+      let targetX = window.innerWidth / 2;
+      let targetY = window.innerHeight / 2;
+      let currentX = targetX;
+      let currentY = targetY;
+      let isVisible = false;
+
+      window.addEventListener("mousemove", (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+        if (!isVisible) {
+          isVisible = true;
+          spot.style.opacity = "1";
+        }
+      }, { passive: true });
+
+      document.addEventListener("mouseleave", () => {
+        spot.style.opacity = "0";
+        isVisible = false;
+      });
+
+      function animate() {
+        currentX += (targetX - currentX) * 0.1;
+        currentY += (targetY - currentY) * 0.1;
+        spot.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
     })();
 
     // Scroll Reveal Observer
@@ -390,12 +429,12 @@ const serviceSchema = {
     document.querySelectorAll(".r").forEach(el => revealObserver.observe(el));
 
     // 3D Card Tilt (Pointer devices)
-    document.querySelectorAll(".svc-card, .proj-card, .hl-box, .framework-card, .pipe-step, .cred-card").forEach(card => {
+    document.querySelectorAll(".svc-card, .proj-card, .hl-box, .framework-card, .pipe-step, .cred-card, .chapter-window").forEach(card => {
       card.addEventListener("mousemove", e => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+        card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
         card.style.transition = "transform 0.05s ease-out";
       });
       card.addEventListener("mouseleave", () => {
@@ -406,7 +445,7 @@ const serviceSchema = {
 
     // Mobile Touch Tactile Feedback & Gyroscope Motion
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-      document.querySelectorAll(".svc-card, .pipe-step, .cred-card, .hl-box, .interest-pill").forEach(card => {
+      document.querySelectorAll(".svc-card, .pipe-step, .cred-card, .hl-box, .interest-pill, .chapter-window").forEach(card => {
         card.addEventListener("touchstart", function() {
           this.style.transform = "scale(0.975)";
           this.style.borderColor = "rgba(255, 133, 51, 0.6)";
