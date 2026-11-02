@@ -107,9 +107,9 @@
             throw new Error();
           }
         } catch {
-          btn.textContent = "Failed to Send — Reach via WhatsApp";
+          btn.textContent = "Failed to Send: Reach via WhatsApp";
           btn.style.background = "#dc2626";
-          if (window.showToast) window.showToast("Form delivery failed — please reach via WhatsApp or email directly.");
+          if (window.showToast) window.showToast("Form delivery failed: please reach via WhatsApp or email directly.");
           setTimeout(() => { btn.textContent = "Send Inquiry Message →"; btn.style.background = ""; btn.disabled = false; }, 4500);
         }
       });

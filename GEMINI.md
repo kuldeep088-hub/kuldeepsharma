@@ -14,3 +14,10 @@ Whenever the user requests any updates, changes, bug fixes, or enhancements:
 3. Commit with an informative conventional commit message: `git commit -m "..."`
 4. Automatically push to the remote repository: `git push origin main`
 5. Report the updated commit to the user.
+
+---
+
+## 🚫 Punctuation Rule: Never Use Em Dash ("—")
+**MANDATORY FOR ALL AGENTS & SESSIONS:**
+- Never use the em dash symbol `—` (Unicode `\u2014`) anywhere across the entire website, codebase, content, metadata, or documentation.
+- Always use standard hyphens `-`, colons `:`, commas `,`, or rewrite sentences cleanly instead.
