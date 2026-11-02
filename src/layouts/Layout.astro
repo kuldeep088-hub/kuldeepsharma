@@ -12,6 +12,175 @@ const {
   description = "Where Creativity Meets Growth | Creative Strategy Backed by Performance. Head of Growth Systems & Operations at Orielix | AI Automation, AEO, GEO & Meta Ads. Based in Jaipur, India.",
   image = "/linkedin_photo.jpg",
 } = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://kuldeepsharma.me';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString().replace(/\/$/, '') + '/';
+const ogImageURL = new URL(image, siteUrl).toString();
+
+// Structured Data (JSON-LD) Schemas for Search Engines & Answer Engines (AEO/GEO)
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}/#person`,
+  "name": "Kuldeep Sharma",
+  "givenName": "Kuldeep",
+  "familyName": "Sharma",
+  "url": siteUrl,
+  "image": ogImageURL,
+  "jobTitle": "Head of Growth Systems & Operations",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orielix",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    }
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "JECRC University"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Google AI Essentials",
+      "credentialCategory": "Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "identifier": "DIKE69UXZBU7"
+    }
+  ],
+  "knowsAbout": [
+    "Answer Engine Optimization (AEO)",
+    "Generative Engine Optimization (GEO)",
+    "Search Engine Optimization (SEO)",
+    "AI Workflow Automation",
+    "n8n Automation",
+    "Make.com Pipelines",
+    "Meta Ads & Performance Marketing",
+    "B2B Lead Generation",
+    "Growth Systems Architecture"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/kuldeepsharma09/",
+    "https://www.instagram.com/heyitskuldeep2024/",
+    "https://github.com/kuldeep088-hub"
+  ],
+  "email": "mailto:kuldeepsharma635023@gmail.com",
+  "telephone": "+918690826138"
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "Kuldeep Sharma | Growth Systems & AI Automation",
+  "description": description,
+  "author": {
+    "@id": `${siteUrl}/#person`
+  },
+  "inLanguage": "en-US"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${siteUrl}/#faq-schema`,
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between SEO, AEO, and GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional SEO optimizes for Google's classic algorithmic rankings. Answer Engine Optimization (AEO) structures entity data and facts so AI engines like Perplexity, ChatGPT Search, and Copilot quote your brand directly in synthesized responses. Generative Engine Optimization (GEO) ensures multi-model consensus across Gemini, Claude, and AI Overviews, making your business the natural recommendation when prospects ask conversational buying queries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do your AI workflows cut client CAC by 30% and save 15+ hours weekly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales friction kills conversions. By building automated n8n and Make pipelines integrated with custom LLM agents, incoming leads are enriched, scored, and answered in under 60 seconds. Speed-to-lead improves booking rates dramatically, eliminating 15+ hours of manual data entry while driving a 30% reduction in acquisition cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of businesses benefit most from your systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I work best with fast-moving startups, B2B lead generation agencies, and D2C brands ready to scale systematically. If you are looking for superficial short-term growth hacks, I am not the right fit. If you want compounding, automated revenue engines built on robust systems, let's talk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we begin working together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Connect directly on LinkedIn (kuldeepsharma09), send a message via WhatsApp (+91 8690826138), or submit the inquiry form. We will schedule a focused discovery session to audit your growth bottlenecks and engineer an actionable game plan."
+      }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}/#professional-service`,
+  "name": "Kuldeep Sharma - Growth Systems & AI Solutions",
+  "url": siteUrl,
+  "image": ogImageURL,
+  "priceRange": "$$",
+  "telephone": "+918690826138",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Growth & AI Automation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SEO · AEO · GEO Search Intelligence Optimization"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Systems & Workflow Automation (n8n & Make)"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Meta Ads & Performance Marketing Funnels"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Automated B2B Lead Generation Engines"
+        }
+      }
+    ]
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -19,32 +188,61 @@ const {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
   <title>{title}</title>
+  <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="keywords" content="Kuldeep Sharma, Growth Systems, AI Automation, Answer Engine Optimization, AEO, Generative Engine Optimization, GEO, SEO, Meta Ads, n8n Automation, Make.com, B2B Lead Generation, Orielix, Jaipur Growth Architect" />
+  <meta name="author" content="Kuldeep Sharma" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Geo & Regional Tags -->
+  <meta name="geo.region" content="IN-RJ" />
+  <meta name="geo.placename" content="Jaipur" />
+  <meta name="theme-color" content="#07080a" />
+  <meta name="msapplication-TileColor" content="#07080a" />
 
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/jpeg" href="/linkedin_photo.jpg" />
   <link rel="shortcut icon" type="image/jpeg" href="/linkedin_photo.jpg" />
   <link rel="apple-touch-icon" href="/linkedin_photo.jpg" />
 
-  <!-- Open Graph / Meta -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kuldeep Sharma Portfolio" />
+  <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
-  <meta property="og:url" content="https://www.linkedin.com/in/kuldeepsharma09/" />
-  <meta property="og:site_name" content="Kuldeep Sharma Portfolio" />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Kuldeep Sharma - Head of Growth Systems & Operations" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={image} />
+  <meta name="twitter:image" content={ogImageURL} />
+  <meta name="twitter:image:alt" content="Kuldeep Sharma - Head of Growth Systems & Operations" />
 
-  <!-- Preconnect and Google Fonts -->
+  <!-- Preconnect & Font Optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data for Google, Bing, Perplexity, & ChatGPT -->
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </head>
 <body>
   <!-- Global Gradient Definitions -->
@@ -67,7 +265,7 @@ const {
   <slot />
 
   <!-- Floating WhatsApp Quick Button -->
-  <a href="https://wa.me/918690826138" target="_blank" rel="noopener" class="get-in-touch" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/918690826138" target="_blank" rel="noopener" class="get-in-touch" aria-label="Chat with Kuldeep Sharma on WhatsApp">
     <div class="git-icon-wrap">
       <div class="git-pulse"></div>
       <div class="git-icon">

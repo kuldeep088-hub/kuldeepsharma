@@ -2,28 +2,38 @@
 ---
 
 <!-- ─── HERO SECTION ─── -->
-<section class="hero" id="hero">
+<section class="hero" id="hero" aria-label="Introduction & Overview">
   <!-- Glowing Background Orbs & Canvases -->
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-orb orb3"></div>
-  <div class="hero-grid-pattern"></div>
-  <canvas id="heroCanvas"></canvas>
+  <div class="hero-orb orb1" aria-hidden="true"></div>
+  <div class="hero-orb orb2" aria-hidden="true"></div>
+  <div class="hero-orb orb3" aria-hidden="true"></div>
+  <div class="hero-grid-pattern" aria-hidden="true"></div>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
 
   <!-- Giant Bold Typographic Name Block with Dynamic Center Photo -->
-  <div class="name-block">
-    <span class="name-line">KULDEEP</span>
-    <span class="name-line">SHARMA</span>
+  <div class="name-block" role="banner">
+    <span class="sr-only">Kuldeep Sharma</span>
+    <span class="name-line" aria-hidden="true">KULDEEP</span>
+    <span class="name-line" aria-hidden="true">SHARMA</span>
 
     <!-- High-Impact Central Photo with 3D Tilt & Cyber Aura -->
     <div class="hero-photo-wrapper" id="heroPhotoWrapper">
       <div class="hero-photo-3d" id="heroPhoto3D">
-        <div class="hero-aura-ring"></div>
-        <div class="hero-dashed-ring"></div>
-        <div class="hero-dashed-ring-2"></div>
+        <div class="hero-aura-ring" aria-hidden="true"></div>
+        <div class="hero-dashed-ring" aria-hidden="true"></div>
+        <div class="hero-dashed-ring-2" aria-hidden="true"></div>
         
         <div class="hero-photo-frame">
-          <img src="/linkedin_photo.jpg" alt="Kuldeep Sharma" onerror="this.onerror=null;this.src='/All info/Kuldeep.png';" />
+          <img 
+            src="/linkedin_photo.jpg" 
+            alt="Kuldeep Sharma - Head of Growth Systems & Operations" 
+            width="220" 
+            height="220" 
+            loading="eager" 
+            fetchpriority="high"
+            decoding="async"
+            onerror="this.onerror=null;this.src='/All info/Kuldeep.png';" 
+          />
         </div>
       </div>
     </div>
@@ -36,22 +46,22 @@
 
   <!-- LinkedIn Banner Tagline Ribbon -->
   <div class="hero-banner-tagline r">
-    <span class="hl-dot"></span>
+    <span class="hl-dot" aria-hidden="true"></span>
     <span>Where Creativity Meets Growth</span>
     &nbsp;•&nbsp;
     <span class="cyan-text">Creative Strategy Backed by Performance</span>
   </div>
 
   <!-- Dynamic Typewriter Subtitle -->
-  <div class="hero-sub" id="heroSub">
+  <div class="hero-sub" id="heroSub" aria-live="polite">
     <span class="hero-sub-prefix">Specialized in:</span>
-    <span class="tw-text" id="twText"></span><span class="tw-cursor"></span>
+    <span class="tw-text" id="twText"></span><span class="tw-cursor" aria-hidden="true"></span>
   </div>
 
   <!-- Hero CTA Buttons -->
   <div class="hero-actions r">
-    <a href="https://www.linkedin.com/in/kuldeepsharma09/" target="_blank" rel="noopener" class="btn-li-light">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+    <a href="https://www.linkedin.com/in/kuldeepsharma09/" target="_blank" rel="noopener" class="btn-li-light" aria-label="Connect with Kuldeep Sharma on LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
       Connect on LinkedIn →
     </a>
   </div>
