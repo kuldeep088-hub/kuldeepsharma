@@ -2430,3 +2430,218 @@
       0% { transform: translateY(0); }
       100% { transform: translateY(-5px); }
     }
+
+
+    /* ═══════════════════════════════════════════════════
+       A PART OF LIFE & PHILOSOPHY SECTION STYLES
+       ═══════════════════════════════════════════════════ */
+    .life-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 1024px) {
+      .life-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    .life-card {
+      background: rgba(22, 24, 31, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--pill-md, 20px);
+      padding: 2.2rem 2rem;
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .life-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255, 133, 51, 0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .life-card:hover {
+      border-color: rgba(255, 133, 51, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 133, 51, 0.15);
+    }
+    .life-card:hover::before {
+      opacity: 1;
+    }
+    .life-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .life-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(255, 133, 51, 0.12);
+      border: 1px solid rgba(255, 133, 51, 0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+    }
+    .life-card-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .life-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .life-card-sub {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 1.6rem;
+      line-height: 1.55;
+    }
+
+    /* Rhythm Timeline */
+    .rhythm-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+    }
+    .rhythm-timeline::before {
+      content: "";
+      position: absolute;
+      top: 10px; bottom: 10px; left: 7px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(255, 133, 51, 0.5) 0%, rgba(255, 133, 51, 0.1) 100%);
+    }
+    .rhythm-item {
+      display: flex;
+      gap: 1.1rem;
+      position: relative;
+    }
+    .rhythm-bullet {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--orange);
+      flex-shrink: 0;
+      margin-top: 3px;
+      box-shadow: 0 0 10px var(--orange-glow);
+    }
+    .rhythm-content {
+      flex: 1;
+    }
+    .rhythm-time {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--orange-hover);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .rhythm-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .rhythm-desc {
+      font-size: 0.82rem;
+      color: var(--gray-light);
+      line-height: 1.45;
+    }
+
+    /* Mental Models Principles */
+    .principles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+    .principle-box {
+      background: rgba(14, 16, 20, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      transition: all 0.25s ease;
+    }
+    .principle-box:hover {
+      background: rgba(22, 24, 31, 0.95);
+      border-color: rgba(255, 133, 51, 0.35);
+      transform: translateX(4px);
+    }
+    .principle-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .principle-num {
+      font-size: 0.75rem;
+      color: var(--orange);
+      font-weight: 800;
+    }
+    .principle-desc {
+      font-size: 0.81rem;
+      color: var(--gray-light);
+      line-height: 1.45;
+    }
+
+    /* Passions Grid */
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+    @media (max-width: 480px) {
+      .passions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .passion-pill {
+      background: rgba(14, 16, 20, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: all 0.25s ease;
+    }
+    .passion-pill:hover {
+      background: rgba(22, 24, 31, 0.95);
+      border-color: rgba(255, 133, 51, 0.35);
+      transform: translateY(-2px);
+    }
+    .passion-pill-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .passion-pill-desc {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
