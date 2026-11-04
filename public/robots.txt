@@ -1,4 +1,40 @@
+# Robots.txt for Kuldeep Sharma - Autonomous Growth Infrastructure & Revenue Systems
+# Production: https://kuldeepsharma.me
+
 User-agent: *
 Allow: /
 
+# Dedicated directives for Search & AI Answer Engines (AEO / GEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemaps
 Sitemap: https://kuldeepsharma.me/sitemap-index.xml
+Sitemap: https://kuldeepsharma.me/sitemap-0.xml
